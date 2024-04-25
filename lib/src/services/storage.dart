@@ -1,13 +1,13 @@
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 extension StorageExt on Storage {
   /// Get bucket usage
   ///
   /// Get usage information on a specific storage bucket.
-  Future<UsageBuckets> getBucketUsage({required String bucketId}) async {
+  Future<models.UsageBuckets> getBucketUsage({required String bucketId}) async {
     final String apiPath =
         '/storage/{bucketId}/usage'.replaceAll('{bucketId}', bucketId);
 
@@ -20,7 +20,7 @@ extension StorageExt on Storage {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageBuckets.fromMap(res.data);
+    return models.UsageBuckets.fromMap(res.data);
   }
 
   // /// Get Usage Buckets
@@ -44,7 +44,7 @@ extension StorageExt on Storage {
   /// Get Usage Storage
   ///
   /// Get usage information on the current project's storage.
-  Future<UsageStorage> getUsage() async {
+  Future<models.UsageStorage> getUsage() async {
     final String apiPath = '/storage/usage';
 
     final Map<String, dynamic> apiParams = {};
@@ -56,6 +56,6 @@ extension StorageExt on Storage {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageStorage.fromMap(res.data);
+    return models.UsageStorage.fromMap(res.data);
   }
 }

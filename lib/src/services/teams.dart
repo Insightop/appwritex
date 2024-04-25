@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 extension TeamsExt on Teams {
   /// List all memberships
@@ -25,8 +25,8 @@ extension TeamsExt on Teams {
   ///
   /// Get usage information on the current project's teams service.
   @experimental
-  Future<UsageTeams> getUsage() async {
-    return UsageTeams(
+  Future<models.UsageTeams> getUsage() async {
+    return models.UsageTeams(
       range: '0',
       teamsTotal: await list().then((value) => value.total),
       membershipsTotal: await _listMemberships().then((value) => value.total),

@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 class Vcs extends Service {
   Vcs(super.client);
@@ -11,7 +11,7 @@ class Vcs extends Service {
   ///
   /// Get a list of all the VCS (Version Control System) installations available
   @experimental
-  Future<InstallationList> listInstallations() async {
+  Future<models.InstallationList> listInstallations() async {
     final String apiPath = '/vcs/installations';
 
     final Map<String, dynamic> apiParams = {};
@@ -23,6 +23,6 @@ class Vcs extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return InstallationList.fromMap(res.data);
+    return models.InstallationList.fromMap(res.data);
   }
 }

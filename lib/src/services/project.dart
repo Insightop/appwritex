@@ -1,7 +1,7 @@
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 @Deprecated('Not supported through dart sdk yet.')
 class Project extends Service {
@@ -11,7 +11,7 @@ class Project extends Service {
   ///
   /// Get usage information on the current project.
   @Deprecated('Not supported through dart sdk yet.')
-  Future<UsageProject> getUsage() async {
+  Future<models.UsageProject> getUsage() async {
     final String apiPath = '/project/usage';
 
     final Map<String, dynamic> apiParams = {};
@@ -23,14 +23,14 @@ class Project extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageProject.fromMap(res.data);
+    return models.UsageProject.fromMap(res.data);
   }
 
   /// Get variables
   ///
   /// Get a list of all the project's environment variables.
   @Deprecated('Not supported through dart sdk yet.')
-  Future<VariableList> getVariables() async {
+  Future<models.VariableList> getVariables() async {
     final String apiPath = '/project/variables';
 
     final Map<String, dynamic> apiParams = {};
@@ -42,6 +42,6 @@ class Project extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return VariableList.fromMap(res.data);
+    return models.VariableList.fromMap(res.data);
   }
 }

@@ -1,13 +1,13 @@
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 extension UsersExt on Users {
   /// Get Usage Users
   ///
   /// Get usage information on the current project's users.
-  Future<UsageUsers> getUsage() async {
+  Future<models.UsageUsers> getUsage() async {
     final String apiPath = '/users/usage';
 
     final Map<String, dynamic> apiParams = {};
@@ -19,6 +19,6 @@ extension UsersExt on Users {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageUsers.fromMap(res.data);
+    return models.UsageUsers.fromMap(res.data);
   }
 }

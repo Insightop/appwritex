@@ -1,13 +1,13 @@
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 extension DatabasesExt on Databases {
   /// Get Usage Collection
   ///
   /// Get usage information on a specific collection.
-  Future<UsageCollection> getCollectionUsage({
+  Future<models.UsageCollection> getCollectionUsage({
     required String databaseId,
     required String collectionId,
   }) async {
@@ -25,13 +25,14 @@ extension DatabasesExt on Databases {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageCollection.fromMap(res.data);
+    return models.UsageCollection.fromMap(res.data);
   }
 
   /// Get Usage Database
   ///
   /// Get usage information on the current project's database.
-  Future<UsageDatabase> getDatabaseUsage({required String databaseId}) async {
+  Future<models.UsageDatabase> getDatabaseUsage(
+      {required String databaseId}) async {
     final String apiPath =
         '/databases/{databaseId}/usage'.replaceAll('{databaseId}', databaseId);
 
@@ -44,13 +45,13 @@ extension DatabasesExt on Databases {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageDatabase.fromMap(res.data);
+    return models.UsageDatabase.fromMap(res.data);
   }
 
   /// Get Usage Databases
   ///
   /// Get usage information on all of the current project's databases.
-  Future<UsageDatabases> getUsage() async {
+  Future<models.UsageDatabases> getUsage() async {
     final String apiPath = '/databases/usage';
 
     final Map<String, dynamic> apiParams = {};
@@ -62,6 +63,6 @@ extension DatabasesExt on Databases {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return UsageDatabases.fromMap(res.data);
+    return models.UsageDatabases.fromMap(res.data);
   }
 }

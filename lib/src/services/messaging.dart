@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 extension MessagingExt on Messaging {
   /// List all subscribers
@@ -24,8 +24,8 @@ extension MessagingExt on Messaging {
   ///
   /// Get usage information on the current project's messaging service.
   @experimental
-  Future<UsageMessaging> getUsage() async {
-    return UsageMessaging(
+  Future<models.UsageMessaging> getUsage() async {
+    return models.UsageMessaging(
       range: '0',
       messagesTotal: await listMessages().then((value) => value.total),
       topicsTotal: await listTopics().then((value) => value.total),

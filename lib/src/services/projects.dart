@@ -1,7 +1,7 @@
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart';
+import '../models/models.dart' as models;
 
 @Deprecated('Not supported through dart sdk yet.')
 class Projects extends Service {
@@ -11,7 +11,7 @@ class Projects extends Service {
   ///
   /// Get a list of all the projects in the current team. You can use the query
   @Deprecated('Not supported through dart sdk yet.')
-  Future<ProjectList> list() async {
+  Future<models.ProjectList> list() async {
     final String apiPath = '/projects';
 
     final Map<String, dynamic> apiParams = {};
@@ -23,6 +23,6 @@ class Projects extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return ProjectList.fromMap(res.data);
+    return models.ProjectList.fromMap(res.data);
   }
 }
