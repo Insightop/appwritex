@@ -9,6 +9,7 @@ class Proxy extends Service {
   /// List Proxies
   ///
   /// Get a list of all the proxies in the current team. You can use the query
+  @Deprecated('Not supported through dart sdk yet.')
   Future<RuleList> listRules() async {
     final String apiPath = '/proxy/rules';
 

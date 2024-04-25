@@ -26,3 +26,5 @@ export 'usage_functions.dart';
 export 'usage_project.dart';
 export 'usage_storage.dart';
 export 'usage_users.dart';
+export 'usage_messaging.dart';
+export 'usage_teams.dart';

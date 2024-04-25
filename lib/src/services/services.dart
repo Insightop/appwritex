@@ -9,3 +9,4 @@ export 'storage.dart';
 export 'teams.dart';
 export 'users.dart';
 export 'vcs.dart';
+export 'messaging.dart';

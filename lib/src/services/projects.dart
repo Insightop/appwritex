@@ -3,12 +3,14 @@ import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
 import '../models/models.dart';
 
+@Deprecated('Not supported through dart sdk yet.')
 class Projects extends Service {
   Projects(super.client);
 
   /// List Projects
   ///
   /// Get a list of all the projects in the current team. You can use the query
+  @Deprecated('Not supported through dart sdk yet.')
   Future<ProjectList> list() async {
     final String apiPath = '/projects';
 

@@ -1,14 +1,15 @@
 name: appwritex
-description: A starting point for Dart libraries or applications.
+description: A Appwrite extension package for Dart and Flutter.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/insightoptech/apwritex
+homepage: https://github.com/insightoptech/apwritex
 
 environment:
   sdk: ^3.3.0
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
+  meta: ^1.14.0
+  dart_appwrite: ^11.0.2
 
 dev_dependencies:
   lints: ^3.0.0
