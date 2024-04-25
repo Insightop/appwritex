@@ -1,4 +1,3 @@
-import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
 import '../models/models.dart';

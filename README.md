@@ -1,39 +1,72 @@
-<!-- 
+<!--
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
 
 For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
 
 For general information about developing packages, see the Dart guide for
 [creating packages](https://dart.dev/guides/libraries/create-library-packages)
 and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
+[developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+AppwriteX provides additional features to the Appwrite Dart SDK non-invasively.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **AppwriteX** extends the Appwrite Dart SDK with additional features.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+1. Add this package to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  dart_appwrite: ^<latest_version>
+  appwritex: ^1.0.0
+```
+
+2. Install the package by running `dart pub get`.
+3. Import the package in your Dart code:
+
+```dart
+import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:appwritex/appwritex.dart';
+```
+
+4. Use the package in your code:
+
+```dart
+void main() async {
+  final client = Client()
+      .setEndpoint('http://localhost/v1')
+      .setProject('fedcba9876543210')
+      .setKey('0123456789abcdef');
+    final users = Users(client);
+    final usersUsage = await users.getUsage();    // users.getUsage() is provided by AppwriteX
+    print(usersUsage.toMap());
+}
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+import 'package:dart_appwrite/dart_appwrite.dart';
+import 'package:appwritex/appwritex.dart';
+
+void main() async {
+  final client = Client()
+      .setEndpoint('http://localhost/v1')
+      .setProject('fedcba9876543210')
+      .setKey('0123456789abcdef');
+  final users = Users(client);
+  final usersUsage = await users.getUsage();    // users.getUsage() is provided by AppwriteX
+  print(usersUsage.toMap());
+}
+
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Some features in this package are experimental and may not work as expected.

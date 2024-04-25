@@ -1,12 +1,14 @@
+import 'package:meta/meta.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/models.dart';
 import 'package:dart_appwrite/src/enums.dart';
 import 'package:appwritex/appwritex.dart';
 
 extension HealthExt on Health {
-  /// Get version
+  /// Get version(Public)
   ///
   /// Check the Appwrite HTTP server is up and responsive.
+  @experimental
   Future<HealthVersion> getVersion() async {
     final String apiPath = '/health/version';
 

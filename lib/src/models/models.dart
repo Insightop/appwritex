@@ -1,7 +1,7 @@
 export 'metric.dart';
 export 'metric_breakdown.dart';
 
-// export 'project.dart';
+export 'project.dart';
 export 'platform.dart';
 export 'auth_provider.dart';
 export 'webhook.dart';
