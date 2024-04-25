@@ -26,13 +26,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Flutter SDK
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@v1
 
-      - name: Fetch Flutter dependencies
-        run: flutter pub get
+      - name: Fetch Dart dependencies
+        run: dart pub get
 
       - name: Analyze code
         run: dart analyze --fatal-infos
