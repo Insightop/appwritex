@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-AppwriteX provides additional features to the Appwrite Dart SDK non-invasively.
+[Beta] AppwriteX provides additional features to the Appwrite Dart SDK non-invasively.
 
 ## Features
 

@@ -10,13 +10,16 @@ extension DatabasesExt on Databases {
   Future<models.UsageCollection> getCollectionUsage({
     required String databaseId,
     required String collectionId,
+    String? range,
   }) async {
     final String apiPath =
         '/databases/{databaseId}/collections/{collectionId}/usage'
             .replaceAll('{databaseId}', databaseId)
             .replaceAll('{collectionId}', collectionId);
 
-    final Map<String, dynamic> apiParams = {};
+    final Map<String, dynamic> apiParams = {
+      'range': range,
+    };
 
     final Map<String, String> apiHeaders = {
       'content-type': 'application/json',
@@ -31,12 +34,16 @@ extension DatabasesExt on Databases {
   /// Get Usage Database
   ///
   /// Get usage information on the current project's database.
-  Future<models.UsageDatabase> getDatabaseUsage(
-      {required String databaseId}) async {
+  Future<models.UsageDatabase> getDatabaseUsage({
+    required String databaseId,
+    String? range,
+  }) async {
     final String apiPath =
         '/databases/{databaseId}/usage'.replaceAll('{databaseId}', databaseId);
 
-    final Map<String, dynamic> apiParams = {};
+    final Map<String, dynamic> apiParams = {
+      'range': range,
+    };
 
     final Map<String, String> apiHeaders = {
       'content-type': 'application/json',
@@ -51,10 +58,14 @@ extension DatabasesExt on Databases {
   /// Get Usage Databases
   ///
   /// Get usage information on all of the current project's databases.
-  Future<models.UsageDatabases> getUsage() async {
+  Future<models.UsageDatabases> getUsage({
+    String? range,
+  }) async {
     final String apiPath = '/databases/usage';
 
-    final Map<String, dynamic> apiParams = {};
+    final Map<String, dynamic> apiParams = {
+      'range': range,
+    };
 
     final Map<String, String> apiHeaders = {
       'content-type': 'application/json',

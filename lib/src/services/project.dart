@@ -11,10 +11,14 @@ class Project extends Service {
   ///
   /// Get usage information on the current project.
   @Deprecated('Not supported through dart sdk yet.')
-  Future<models.UsageProject> getUsage() async {
+  Future<models.UsageProject> getUsage({
+    String? range,
+  }) async {
     final String apiPath = '/project/usage';
 
-    final Map<String, dynamic> apiParams = {};
+    final Map<String, dynamic> apiParams = {
+      'range': range,
+    };
 
     final Map<String, String> apiHeaders = {
       'content-type': 'application/json',

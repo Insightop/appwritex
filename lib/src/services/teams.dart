@@ -25,7 +25,9 @@ extension TeamsExt on Teams {
   ///
   /// Get usage information on the current project's teams service.
   @experimental
-  Future<models.UsageTeams> getUsage() async {
+  Future<models.UsageTeams> getUsage({
+    String? range,
+  }) async {
     return models.UsageTeams(
       range: '0',
       teamsTotal: await list().then((value) => value.total),

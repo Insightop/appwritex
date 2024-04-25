@@ -24,7 +24,9 @@ extension MessagingExt on Messaging {
   ///
   /// Get usage information on the current project's messaging service.
   @experimental
-  Future<models.UsageMessaging> getUsage() async {
+  Future<models.UsageMessaging> getUsage({
+    String? range,
+  }) async {
     return models.UsageMessaging(
       range: '0',
       messagesTotal: await listMessages().then((value) => value.total),
