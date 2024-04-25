@@ -1,5 +1,4 @@
 import 'package:dart_appwrite/models.dart';
-import 'models.dart';
 
 /// Health Version
 class HealthVersion implements Model {

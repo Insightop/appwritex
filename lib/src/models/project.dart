@@ -1,4 +1,5 @@
 import 'package:dart_appwrite/models.dart';
+
 import 'auth_provider.dart';
 import 'key.dart';
 import 'platform.dart';
