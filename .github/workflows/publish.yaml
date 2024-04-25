@@ -38,13 +38,10 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Setup Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
-
       # https://dart.dev/tools/pub/automated-publishing
 
-      - name: Check the Flutter FFI plugin
+      - name: Check the package
         run: dart pub publish --dry-run
 
-      - name: Publish the plugin
+      - name: Publish the package to pub.dev
         run: dart pub publish --force
