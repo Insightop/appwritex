@@ -6,6 +6,7 @@ export 'platform.dart';
 export 'auth_provider.dart';
 export 'webhook.dart';
 export 'key.dart';
+export 'console_variables.dart';
 
 export 'variable_list.dart';
 export 'project_list.dart';

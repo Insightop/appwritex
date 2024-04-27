@@ -2,14 +2,13 @@ import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
 import '../models/models.dart' as models;
 
-@Deprecated('Not supported through dart sdk yet.')
+/// Use this scope need based on the Account module.
 class Project extends Service {
   Project(super.client);
 
   /// Get Usage
   ///
   /// Get usage information on the current project.
-  @Deprecated('Not supported through dart sdk yet.')
   Future<models.UsageProject> getUsage({
     String? range,
   }) async {
@@ -32,7 +31,6 @@ class Project extends Service {
   /// Get variables
   ///
   /// Get a list of all the project's environment variables.
-  @Deprecated('Not supported through dart sdk yet.')
   Future<models.VariableList> getVariables() async {
     final String apiPath = '/project/variables';
 

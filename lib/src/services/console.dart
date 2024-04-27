@@ -2,15 +2,15 @@ import 'package:dart_appwrite/src/service.dart';
 import 'package:dart_appwrite/src/enums.dart';
 import '../models/models.dart' as models;
 
-/// Use this scope need based on the Account module.
-class Projects extends Service {
-  Projects(super.client);
+class Console extends Service {
+  Console(super.client);
 
-  /// List Projects
+  /// Get Console Variables
   ///
-  /// Get a list of all the projects in the current team. You can use the query
-  Future<models.ProjectList> list() async {
-    final String apiPath = '/projects';
+  /// Get a set of all the console's environment variables.
+  @Deprecated('Not supported through dart sdk yet.')
+  Future<models.ConsoleVariables> getVariables() async {
+    final String apiPath = '/console/variables';
 
     final Map<String, dynamic> apiParams = {};
 
@@ -21,6 +21,6 @@ class Projects extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return models.ProjectList.fromMap(res.data);
+    return models.ConsoleVariables.fromMap(res.data);
   }
 }
