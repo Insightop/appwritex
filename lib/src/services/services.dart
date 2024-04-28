@@ -6,8 +6,10 @@ export 'storage.dart';
 export 'teams.dart';
 export 'users.dart';
 export 'messaging.dart';
+export 'public.dart';
 
 export 'console.dart';
 export 'project.dart';
 export 'projects.dart';
 export 'vcs.dart';
+export 'avatars.dart';

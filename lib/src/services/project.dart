@@ -6,7 +6,7 @@ import '../models/models.dart' as models;
 class Project extends Service {
   Project(super.client);
 
-  /// Get Usage
+  /// Get Usage (scope: projects.read)
   ///
   /// Get usage information on the current project.
   Future<models.UsageProject> getUsage({
@@ -28,7 +28,7 @@ class Project extends Service {
     return models.UsageProject.fromMap(res.data);
   }
 
-  /// Get variables
+  /// Get variables (scope: projects.read)
   ///
   /// Get a list of all the project's environment variables.
   Future<models.VariableList> getVariables() async {

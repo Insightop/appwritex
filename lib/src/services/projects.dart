@@ -6,7 +6,7 @@ import '../models/models.dart' as models;
 class Projects extends Service {
   Projects(super.client);
 
-  /// List Projects
+  /// List Projects (scp: projects.read)
   ///
   /// Get a list of all the projects in the current team. You can use the query
   Future<models.ProjectList> list() async {

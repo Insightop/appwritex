@@ -1,15 +1,16 @@
 import 'package:meta/meta.dart';
 import 'package:dart_appwrite/dart_appwrite.dart';
 import 'package:dart_appwrite/src/enums.dart';
-import 'package:appwritex/appwritex.dart';
+
+import '../models/models.dart' as models;
 
 extension HealthExt on Health {
-  /// Get version(Public)
+  /// Get system stats(Internals)
   ///
-  /// Check the Appwrite HTTP server is up and responsive.
+  /// Get the system internal stats.
   @experimental
-  Future<HealthVersion> getVersion() async {
-    final String apiPath = '/health/version';
+  Future<models.HealthStats> getStats() async {
+    final String apiPath = '/health/stats';
 
     final Map<String, dynamic> apiParams = {};
 
@@ -20,6 +21,6 @@ extension HealthExt on Health {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return HealthVersion.fromMap(res.data);
+    return models.HealthStats.fromMap(res.data);
   }
 }

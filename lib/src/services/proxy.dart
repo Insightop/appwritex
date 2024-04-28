@@ -5,7 +5,7 @@ import '../models/models.dart' as models;
 class Proxy extends Service {
   Proxy(super.client);
 
-  /// List Proxies
+  /// List Proxies (scope:rules.read)
   ///
   /// Get a list of all the proxies in the current team. You can use the query
   @Deprecated('Not supported through dart sdk yet.')
