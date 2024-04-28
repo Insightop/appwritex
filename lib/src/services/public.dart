@@ -9,10 +9,9 @@ class Public extends Service {
   /// Get Versions(scope: public.read)
   ///
   /// Get a set of all the console's environment variables.
-  @Deprecated('Not supported through dart sdk yet.')
   Future<models.Versions> getVersions() async {
     /// cloud.appwrite.io/versions
-    final String apiPath = '/versions';
+    final String apiPath = '/../versions';
 
     final Map<String, dynamic> apiParams = {};
 
