@@ -18,7 +18,7 @@ void main() {
       final result = models.UsageCollection.fromMap(map);
       expect(result.range, model.range);
       expect(result.documentsTotal, model.documentsTotal);
-      expect(result.documents.length, model.documents.length);
+      expect(result.documents, model.documents);
     });
   });
 }

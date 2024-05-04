@@ -92,6 +92,40 @@ class Webhook implements Model {
       "attempts": attempts,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Webhook &&
+          runtimeType == other.runtimeType &&
+          $id == other.$id &&
+          $createdAt == other.$createdAt &&
+          $updatedAt == other.$updatedAt &&
+          name == other.name &&
+          url == other.url &&
+          events == other.events &&
+          security == other.security &&
+          httpUser == other.httpUser &&
+          httpPass == other.httpPass &&
+          signatureKey == other.signatureKey &&
+          enabled == other.enabled &&
+          logs == other.logs &&
+          attempts == other.attempts;
+  @override
+  int get hashCode =>
+      $id.hashCode ^
+      $createdAt.hashCode ^
+      $updatedAt.hashCode ^
+      name.hashCode ^
+      url.hashCode ^
+      events.hashCode ^
+      security.hashCode ^
+      httpUser.hashCode ^
+      httpPass.hashCode ^
+      signatureKey.hashCode ^
+      enabled.hashCode ^
+      logs.hashCode ^
+      attempts.hashCode;
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/webhook.php

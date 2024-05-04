@@ -74,6 +74,35 @@ class Platform implements Model {
       "httpPass": httpPass,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Platform &&
+          runtimeType == other.runtimeType &&
+          $id == other.$id &&
+          $createdAt == other.$createdAt &&
+          $updatedAt == other.$updatedAt &&
+          name == other.name &&
+          type == other.type &&
+          key == other.key &&
+          store == other.store &&
+          hostname == other.hostname &&
+          httpUser == other.httpUser &&
+          httpPass == other.httpPass;
+
+  @override
+  int get hashCode =>
+      $id.hashCode ^
+      $createdAt.hashCode ^
+      $updatedAt.hashCode ^
+      name.hashCode ^
+      type.hashCode ^
+      key.hashCode ^
+      store.hashCode ^
+      hostname.hashCode ^
+      httpUser.hashCode ^
+      httpPass.hashCode;
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/Platform.php

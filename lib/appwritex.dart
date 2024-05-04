@@ -16,7 +16,7 @@ import 'package:dart_appwrite/models.dart' as models;
 // AppwriteX
 import 'models.dart' as models;
 
-export 'models.dart';
+// export 'models.dart';
 
 part 'src/services/avatars.dart';
 part 'src/services/console.dart';
@@ -30,5 +30,6 @@ part 'src/services/proxy.dart';
 part 'src/services/public.dart';
 part 'src/services/storage.dart';
 part 'src/services/teams.dart';
+part 'src/services/usage.dart';
 part 'src/services/users.dart';
 part 'src/services/vcs.dart';

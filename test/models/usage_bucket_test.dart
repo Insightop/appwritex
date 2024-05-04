@@ -3,8 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('model', () {
-    test('UsageBuckets fromMap() toMap()', () {
-      final model = models.UsageBuckets(
+    test('UsageBucket fromMap() toMap()', () {
+      final model = models.UsageBucket(
         range: '30d',
         filesTotal: 65535,
         filesStorageTotal: 65535,
@@ -17,7 +17,7 @@ void main() {
       );
       final map = model.toMap();
 
-      final result = models.UsageBuckets.fromMap(map);
+      final result = models.UsageBucket.fromMap(map);
       expect(result.range, model.range);
       expect(result.filesTotal, model.filesTotal);
       expect(result.filesStorageTotal, model.filesStorageTotal);

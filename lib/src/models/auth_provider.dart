@@ -45,6 +45,24 @@ class AuthProvider implements Model {
       "enabled": enabled,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AuthProvider &&
+          runtimeType == other.runtimeType &&
+          key == other.key &&
+          name == other.name &&
+          appId == other.appId &&
+          secret == other.secret &&
+          enabled == other.enabled;
+  @override
+  int get hashCode =>
+      key.hashCode ^
+      name.hashCode ^
+      appId.hashCode ^
+      secret.hashCode ^
+      enabled.hashCode;
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/authprovider.php

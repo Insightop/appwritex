@@ -26,4 +26,15 @@ class Metric implements Model {
       "date": date,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Metric &&
+          runtimeType == other.runtimeType &&
+          value == other.value &&
+          date == other.date;
+
+  @override
+  int get hashCode => value.hashCode ^ date.hashCode;
 }

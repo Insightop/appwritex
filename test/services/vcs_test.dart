@@ -50,31 +50,31 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Vcs', () {
     late MockClient client;
-    late Console console;
+    late Vcs vcs;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      vcs = Vcs(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method listInstallations()', () async {
+      final installationList = models.InstallationList(
+        total: 65535,
+        installations: [
+          models.Installation(
+            $id: 'test_id',
+            $createdAt: DateTime.now().toIso8601String(),
+            $updatedAt: DateTime.now().toIso8601String(),
+            provider: 'provider',
+            organization: 'organization',
+            providerInstallationId: 'providerInstallationId',
+          ),
+        ],
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
-
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      when(client.call(HttpMethod.get, path: '/vcs/installations'))
+          .thenAnswer((_) async => Response(data: installationList.toMap()));
+      final response = await vcs.listInstallations();
+      expect(response, isA<models.InstallationList>());
     });
   });
 }

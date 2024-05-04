@@ -161,9 +161,45 @@ void main() {
 
       final result = models.ProjectList.fromMap(map);
       expect(result.total, model.total);
-      expect(result.projects.length, model.projects.length);
-      for (var i = 0; i < result.projects.length; i++) {
-        expect(result.projects[i].toMap(), model.projects[i].toMap());
+      // expect(result.projects, model.projects);
+      for (var i = 0; i < projects.length; i++) {
+        expect(result.projects[i].$id, projects[i].$id);
+        expect(result.projects[i].$createdAt, projects[i].$createdAt);
+        expect(result.projects[i].$updatedAt, projects[i].$updatedAt);
+        expect(result.projects[i].name, projects[i].name);
+        expect(result.projects[i].description, projects[i].description);
+        expect(result.projects[i].teamId, projects[i].teamId);
+        expect(result.projects[i].logo, projects[i].logo);
+        expect(result.projects[i].url, projects[i].url);
+        expect(result.projects[i].legalName, projects[i].legalName);
+        expect(result.projects[i].legalCountry, projects[i].legalCountry);
+        expect(result.projects[i].legalState, projects[i].legalState);
+        expect(result.projects[i].legalCity, projects[i].legalCity);
+        expect(result.projects[i].legalAddress, projects[i].legalAddress);
+        expect(result.projects[i].legalTaxId, projects[i].legalTaxId);
+        expect(result.projects[i].authDuration, projects[i].authDuration);
+        expect(result.projects[i].authLimit, projects[i].authLimit);
+        expect(result.projects[i].authSessionsLimit,
+            projects[i].authSessionsLimit);
+        expect(result.projects[i].authPasswordHistory,
+            projects[i].authPasswordHistory);
+        expect(result.projects[i].authPasswordDictionary,
+            projects[i].authPasswordDictionary);
+        expect(result.projects[i].authPersonalDataCheck,
+            projects[i].authPersonalDataCheck);
+        expect(result.projects[i].oAuthProviders, projects[i].oAuthProviders);
+        expect(result.projects[i].platforms, projects[i].platforms);
+        expect(result.projects[i].webhooks, projects[i].webhooks);
+        expect(result.projects[i].keys, projects[i].keys);
+        expect(result.projects[i].smtpEnabled, projects[i].smtpEnabled);
+        expect(result.projects[i].smtpHost, projects[i].smtpHost);
+        expect(result.projects[i].smtpPort, projects[i].smtpPort);
+        expect(result.projects[i].smtpSenderName, projects[i].smtpSenderName);
+        expect(result.projects[i].smtpSenderEmail, projects[i].smtpSenderEmail);
+        expect(result.projects[i].smtpReplyTo, projects[i].smtpReplyTo);
+        expect(result.projects[i].smtpUsername, projects[i].smtpUsername);
+        expect(result.projects[i].smtpPassword, projects[i].smtpPassword);
+        expect(result.projects[i].smtpSecure, projects[i].smtpSecure);
       }
     });
   });

@@ -32,4 +32,16 @@ class MetricBreakdown implements Model {
       "value": value,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MetricBreakdown &&
+          runtimeType == other.runtimeType &&
+          resourceId == other.resourceId &&
+          name == other.name &&
+          value == other.value;
+
+  @override
+  int get hashCode => resourceId.hashCode ^ name.hashCode ^ value.hashCode;
 }

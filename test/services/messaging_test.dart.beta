@@ -50,31 +50,43 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Messaging', () {
     late MockClient client;
-    late Console console;
+    late Messaging messaging;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      messaging = Messaging(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method getUsage()', () async {
+      final messagingUsage = models.UsageMessaging(
+        range: '30d',
+        messagesTotal: 100,
+        topicsTotal: 10,
+        providersTotal: 5,
+        subscriberTotal: 50,
+        messages: [
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+        ],
+        topics: [
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+        ],
+        providers: [
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+        ],
+        subscribers: [
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+          models.Metric(date: DateTime.now().toIso8601String(), value: 10),
+        ],
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
 
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      when(client.call(HttpMethod.get, path: '/messaging/usage'))
+          .thenAnswer((_) async => Response(data: messagingUsage.toMap()));
+
+      final response = await messaging.getUsage();
+      expect(response, isA<models.UsageMessaging>());
     });
   });
 }

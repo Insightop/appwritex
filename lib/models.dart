@@ -19,7 +19,7 @@ part 'src/models/rule_list.dart';
 part 'src/models/rule.dart';
 part 'src/models/stats_cache.dart';
 part 'src/models/stats_storage.dart';
-part 'src/models/usage_buckets.dart';
+part 'src/models/usage_bucket.dart';
 part 'src/models/usage_collection.dart';
 part 'src/models/usage_database.dart';
 part 'src/models/usage_databases.dart';

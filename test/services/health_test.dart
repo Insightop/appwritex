@@ -50,31 +50,40 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Health', () {
     late MockClient client;
-    late Console console;
+    late Health health;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      health = Health(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method getStats()', () async {
+      final healthStats = models.HealthStats(
+        storage: models.StatsStorage(
+          used: '65535',
+          partitionTotal: '65535',
+          partitionFree: '65535',
+        ),
+        cache: models.StatsCache(
+          uptime: 65535,
+          clients: 65535,
+          hits: 65535,
+          misses: 65535,
+          memoryUsed: 65535,
+          memoryUsedHuman: '65535',
+          memoryUsedPeak: 65535,
+          memoryUsedPeakHuman: '65535',
+        ),
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
 
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      when(client.call(HttpMethod.get,
+              path: '/health/stats',
+              headers: {'content-type': 'application/json'}))
+          .thenAnswer((_) async => Response(data: healthStats.toMap()));
+
+      final response = await health.getStats();
+
+      expect(response, isA<models.HealthStats>());
     });
   });
 }

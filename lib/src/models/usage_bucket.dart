@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Buckets
-class UsageBuckets implements Model {
+class UsageBucket implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -17,7 +17,7 @@ class UsageBuckets implements Model {
   /// Aggregated  number of bucket storage files (in bytes) per period.
   final List<Metric> storage;
 
-  UsageBuckets({
+  UsageBucket({
     required this.range,
     required this.filesTotal,
     required this.filesStorageTotal,
@@ -25,8 +25,8 @@ class UsageBuckets implements Model {
     required this.storage,
   });
 
-  factory UsageBuckets.fromMap(Map<String, dynamic> map) {
-    return UsageBuckets(
+  factory UsageBucket.fromMap(Map<String, dynamic> map) {
+    return UsageBucket(
       range: map['range'].toString(),
       filesTotal: map['filesTotal'],
       filesStorageTotal: map['filesStorageTotal'],
@@ -47,7 +47,7 @@ class UsageBuckets implements Model {
   }
 }
 
-// https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageBuckets.php
+// https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageBucket.php
 
 // <?php
 
@@ -56,7 +56,7 @@ class UsageBuckets implements Model {
 // use Appwrite\Utopia\Response;
 // use Appwrite\Utopia\Response\Model;
 
-// class UsageBuckets extends Model
+// class UsageBucket extends Model
 // {
 //     public function __construct()
 //     {
@@ -103,7 +103,7 @@ class UsageBuckets implements Model {
 //      */
 //     public function getName(): string
 //     {
-//         return 'UsageBuckets';
+//         return 'UsageBucket';
 //     }
 
 //     /**

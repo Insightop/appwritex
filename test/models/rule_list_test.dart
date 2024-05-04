@@ -36,10 +36,7 @@ void main() {
 
       final result = models.RuleList.fromMap(map);
       expect(result.total, model.total);
-      expect(result.rules.length, model.rules.length);
-      for (var i = 0; i < result.rules.length; i++) {
-        expect(result.rules[i].toMap(), model.rules[i].toMap());
-      }
+      expect(result.rules, model.rules);
     });
   });
 }

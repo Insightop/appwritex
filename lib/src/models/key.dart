@@ -80,6 +80,37 @@ class Key implements Model {
       "registration": registration,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Key &&
+          runtimeType == other.runtimeType &&
+          $id == other.$id &&
+          $createdAt == other.$createdAt &&
+          $updatedAt == other.$updatedAt &&
+          name == other.name &&
+          secret == other.secret &&
+          expire == other.expire &&
+          platforms == other.platforms &&
+          userId == other.userId &&
+          teamId == other.teamId &&
+          key == other.key &&
+          registration == other.registration;
+
+  @override
+  int get hashCode =>
+      $id.hashCode ^
+      $createdAt.hashCode ^
+      $updatedAt.hashCode ^
+      name.hashCode ^
+      secret.hashCode ^
+      expire.hashCode ^
+      platforms.hashCode ^
+      userId.hashCode ^
+      teamId.hashCode ^
+      key.hashCode ^
+      registration.hashCode;
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/key.php

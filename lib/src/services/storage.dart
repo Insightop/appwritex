@@ -4,7 +4,7 @@ extension StorageX on Storage {
   /// Get bucket usage
   ///
   /// Get usage information on a specific storage bucket.
-  Future<models.UsageBuckets> getBucketUsage({
+  Future<models.UsageBucket> getBucketUsage({
     required String bucketId,
     String? range,
   }) async {
@@ -22,7 +22,7 @@ extension StorageX on Storage {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return models.UsageBuckets.fromMap(res.data);
+    return models.UsageBucket.fromMap(res.data);
   }
 
   /// Get Usage Storage

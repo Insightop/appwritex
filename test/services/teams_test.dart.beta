@@ -50,31 +50,35 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Teams', () {
     late MockClient client;
-    late Console console;
+    late Teams teams;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      teams = Teams(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method getUsage()', () async {
+      final bucketUsage = models.UsageTeams(
+        range: '30d',
+        teamsTotal: 65535,
+        membershipsTotal: 65535,
+        teams: [
+          models.Metric(
+            date: DateTime.now().toIso8601String(),
+            value: 65535,
+          ),
+        ],
+        memberships: [
+          models.Metric(
+            date: DateTime.now().toIso8601String(),
+            value: 65535,
+          ),
+        ],
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
-
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      when(client.call(HttpMethod.get, path: '/teams/usage'))
+          .thenAnswer((_) async => Response(data: bucketUsage.toMap()));
+      final response = await teams.getUsage();
+      expect(response, isA<models.UsageTeams>());
     });
   });
 }

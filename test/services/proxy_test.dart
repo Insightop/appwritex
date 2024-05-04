@@ -50,31 +50,47 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Proxy', () {
     late MockClient client;
-    late Console console;
+    late Proxy proxy;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      proxy = Proxy(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method listRules()', () async {
+      final rule = models.Rule(
+        $id: 'test_id',
+        $createdAt: DateTime.now().toIso8601String(),
+        $updatedAt: DateTime.now().toIso8601String(),
+        domain: 'domain',
+        resourceType: 'resourceType',
+        resourceId: 'resourceId',
+        status: 'status',
+        logs: 'logs',
+        renewAt: DateTime.now().toIso8601String(),
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
+      final rule2 = models.Rule(
+        $id: 'test_id2',
+        $createdAt: DateTime.now().toIso8601String(),
+        $updatedAt: DateTime.now().toIso8601String(),
+        domain: 'domain2',
+        resourceType: 'resourceType2',
+        resourceId: 'resourceId2',
+        status: 'status2',
+        logs: 'logs2',
+        renewAt: DateTime.now().toIso8601String(),
+      );
+      final rules = [rule, rule2];
 
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      final ruleList = models.RuleList(
+        total: 2,
+        rules: rules,
+      );
+      when(client.call(HttpMethod.get, path: '/proxy/rules', params: {}))
+          .thenAnswer((_) async => Response(data: ruleList.toMap()));
+
+      final response = await proxy.listRules();
+      expect(response, isA<models.RuleList>());
     });
   });
 }

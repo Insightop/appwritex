@@ -50,31 +50,35 @@ class MockClient extends Mock implements Client {
 }
 
 void main() {
-  group('Console', () {
+  group('Users', () {
     late MockClient client;
-    late Console console;
+    late Users users;
     setUp(() {
       client = MockClient();
-      console = Console(client);
+      users = Users(client);
     });
-    test('test method getVariables()', () async {
-      final variables = models.ConsoleVariables(
-        appDomainTarget: 'appDomainTarget',
-        appStorageLimit: 1,
-        appFunctionsSizeLimit: 1,
-        appUsageStats: 'appUsageStats',
-        appVcsEnabled: false,
-        appDomainEnabled: false,
-        appAssistantEnabled: false,
+    test('test method getUsage()', () async {
+      final usersUsage = models.UsageUsers(
+        range: '30d',
+        usersTotal: 65535,
+        sessionsTotal: 65535,
+        users: [
+          models.Metric(
+            date: DateTime.now().toIso8601String(),
+            value: 65535,
+          ),
+        ],
+        sessions: [
+          models.Metric(
+            date: DateTime.now().toIso8601String(),
+            value: 65535,
+          ),
+        ],
       );
-      when(client.call(
-        HttpMethod.get,
-        path: '/console/variables',
-        headers: {'content-type': 'application/json'},
-      )).thenAnswer((_) async => Response(data: variables.toMap()));
-
-      final response = await console.getVariables();
-      expect(response, isA<models.ConsoleVariables>());
+      when(client.call(HttpMethod.get, path: '/users/usage'))
+          .thenAnswer((_) async => Response(data: usersUsage.toMap()));
+      final response = await users.getUsage();
+      expect(response, isA<models.UsageUsers>());
     });
   });
 }
