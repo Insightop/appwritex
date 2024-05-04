@@ -103,7 +103,8 @@ class Webhook implements Model {
           $updatedAt == other.$updatedAt &&
           name == other.name &&
           url == other.url &&
-          events == other.events &&
+          // events == other.events &&
+          ListEquality().equals(events, other.events) &&
           security == other.security &&
           httpUser == other.httpUser &&
           httpPass == other.httpPass &&

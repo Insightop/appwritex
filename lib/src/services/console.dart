@@ -3,10 +3,10 @@ part of appwritex;
 class Console extends Service {
   Console(super.client);
 
-  /// Get Console Variables
+  /// Get Console Variables(scope: projects.read)
   ///
   /// Get a set of all the console's environment variables.
-  @Deprecated('Not supported through dart sdk yet.')
+  @Deprecated('Need scope: projects.read')
   Future<models.ConsoleVariables> getVariables() async {
     final String apiPath = '/console/variables';
 

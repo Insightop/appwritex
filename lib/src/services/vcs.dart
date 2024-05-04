@@ -3,10 +3,10 @@ part of appwritex;
 class Vcs extends Service {
   Vcs(super.client);
 
-  /// List installations(Not officially API)
+  /// List installations(scope: vcs.read)
   ///
   /// Get a list of all the VCS (Version Control System) installations available
-  @Deprecated('API is not available yet.')
+  @Deprecated('Need scope: vcs.read')
   Future<models.InstallationList> listInstallations() async {
     final String apiPath = '/vcs/installations';
 

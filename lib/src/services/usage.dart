@@ -24,7 +24,7 @@ class Usage extends Service {
   Future<models.UsageFunctions> getFunctionsUsage({String? range}) async =>
       Functions(client).getUsage(range: range);
 
-  @Deprecated('API is not available yet.')
+  @Deprecated('Experimental, Not officially API.')
   Future<models.UsageProject> getProjectUsage({String? range}) async =>
       Project(client).getUsage(range: range);
 
@@ -38,11 +38,11 @@ class Usage extends Service {
   Future<models.UsageUsers> getUsersUsage({String? range}) async =>
       Users(client).getUsage(range: range);
 
-  @Deprecated('API is not available yet.')
+  @Deprecated('Experimental, Not officially API.')
   Future<models.UsageTeams> getTeamsUsage({String? range}) async =>
       Teams(client).getUsage(range: range);
 
-  @Deprecated('API is not available yet.')
+  @Deprecated('Experimental, Not officially API.')
   Future<models.UsageMessaging> getMessagingUsage({String? range}) async =>
       Messaging(client).getUsage(range: range);
 }

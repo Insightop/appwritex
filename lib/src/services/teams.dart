@@ -17,10 +17,10 @@ extension TeamsX on Teams {
         total: membershipList.length, memberships: membershipList);
   }
 
-  /// Get teams usage
+  /// Get teams usage(Experimental, Not officially API)
   ///
   /// Get usage information on the current project's teams service.
-  @Deprecated('Mocked API')
+  @Deprecated('Experimental, Not officially API')
   Future<models.UsageTeams> getUsage({
     String? range,
   }) async {

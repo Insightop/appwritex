@@ -9,6 +9,8 @@ environment:
 
 dependencies:
   meta: ^1.11.0
+  collection: ^1.18.0
+
   dart_appwrite: ^11.0.2
 
 dev_dependencies:

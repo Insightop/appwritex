@@ -4,7 +4,7 @@ extension HealthX on Health {
   /// Get system stats(Internals)
   ///
   /// Get the system internal stats.
-  @experimental
+  @Deprecated('Need scope: root')
   Future<models.HealthStats> getStats() async {
     final String apiPath = '/health/stats';
 

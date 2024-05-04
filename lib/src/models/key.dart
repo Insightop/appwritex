@@ -92,7 +92,8 @@ class Key implements Model {
           name == other.name &&
           secret == other.secret &&
           expire == other.expire &&
-          platforms == other.platforms &&
+          // platforms == other.platforms &&
+          ListEquality().equals(platforms, other.platforms) &&
           userId == other.userId &&
           teamId == other.teamId &&
           key == other.key &&

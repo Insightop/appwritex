@@ -4,10 +4,10 @@ part of appwritex;
 class Projects extends Service {
   Projects(super.client);
 
-  /// List Projects (scp: projects.read)
+  /// List Projects (scope: projects.read)
   ///
   /// Get a list of all the projects in the current team. You can use the query
-  @Deprecated('API is not available yet.')
+  @Deprecated('Need scope: projects.read')
   Future<models.ProjectList> list() async {
     final String apiPath = '/projects';
 

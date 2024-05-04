@@ -40,57 +40,57 @@ void main() async {
 }
 ```
 
-## Class
+## Classes and methods
 
 ```dart
-// Extension AvatarsX on Avatars Service
+// Avatars
 Avatars.getCardsCloud();         // Get card of a specific user ID
 Avatars.getCardsCloudBack();     // Get card back of a specific user ID
 Avatars.getCardsCloudOG();       // Get card OG of a specific user ID
 
-// Console Service
+// Console
 Console.getVariables();          // Get all console variables
 
-// Extension DatabasesX on Databases Service
+// Databases
 Databases.getCollectionUsage();  // Get usage of a specific collection
 Databases.getDatabaseUsage();    // Get usage of a specific database
 Databases.getUsage();            // Get usage of all databases
 
-// Extension FunctionsX on Functions Service
+// Functions
 Functions.getFunctionUsage();    // Get usage of a specific function
 Functions.getUsage();            // Get usage of all functions
 
-// Extension HealthX on Health Service
+// Health
 Health.getStats();               // Get health stats
 
-// Extension MessagingX on Messaging Service
+// Messaging
 Messaging.getUsage();            // Get usage of all messaging
 
-// Project Service
+// Project
 Project.getVariables();          // Get all variables of a specific project
 Project.getUsage();              // Get usage of a specific project
 
-// Projects Service
+// Projects
 Projects.list();                 // List all projects
 
-// Proxy Service
+// Proxy
 Proxy.listRules();               // List all proxy rules
 
-// Public Service
+// Public
 Public.getVersions();            // Get all version information
 Public.getHealthVersion();       // Get health version information
 
-// Extension StorageX on Storage Service
+// Storage
 Storage.getBucketUsage();        // Get usage of a specific bucket
 Storage.getUsage();              // Get usage of all storage
 
-// Extension TeamsX on Teams Service
+// Teams
 Teams.getUsage();                // Get usage of all teams
 
-// Extension UsersX on Users Service
+// Users
 Users.getUsage();                // Get usage of all users
 
-// Vcs Service
+// Vcs
 Vcs.listInstallations();         // List all VCS installations
 ```
 
@@ -98,7 +98,7 @@ You can also use the `Usage` class to get usage of all services.
 The `Usage` class is a wrapper class that provides a single method to get usage of all services.
 
 ```dart
-// Usage Service
+// Usage
 Usage.getCollectionUsage(); // Get usage of a specific collection
 Usage.getDatabaseUsage();   // Get usage of a specific database
 Usage.getDatabasesUsage();  // Get usage of all databases

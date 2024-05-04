@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:collection/collection.dart';
 import 'package:appwritex/models.dart' as models;
 
 void main() {
@@ -141,7 +142,15 @@ void main() {
       expect(result.authPersonalDataCheck, model.authPersonalDataCheck);
       expect(result.oAuthProviders, model.oAuthProviders);
       expect(result.platforms, model.platforms);
+
+      ///
+      expect(DeepCollectionEquality().equals(result.webhooks, model.webhooks),
+          true);
+      expect(ListEquality().equals(result.webhooks, model.webhooks), true);
+      expect(result.webhooks, equals(model.webhooks));
       expect(result.webhooks, model.webhooks);
+
+      ///
       expect(result.keys, model.keys);
       expect(result.smtpEnabled, model.smtpEnabled);
       expect(result.smtpHost, model.smtpHost);
