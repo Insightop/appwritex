@@ -16,7 +16,7 @@ import 'package:dart_appwrite/models.dart' as models;
 // AppwriteX
 import 'models.dart' as models;
 
-// export 'models.dart';
+export 'models.dart';
 
 part 'src/services/avatars.dart';
 part 'src/services/console.dart';
