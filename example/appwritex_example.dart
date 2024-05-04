@@ -15,6 +15,7 @@ class MyService {
   final Client _publicClient = Client();
 
   late final Avatars _avatars = Avatars(_apiClient);
+  late final Console _console = Console(_apiClient);
   late final Databases _databases = Databases(_apiClient);
   late final Functions _functions = Functions(_apiClient);
   late final Health _health = Health(_apiClient);
@@ -30,6 +31,7 @@ class MyService {
   late final Usage _usage = Usage(_apiClient);
 
   Avatars get avatars => _avatars;
+  Console get console => _console;
   Databases get databases => _databases;
   Functions get functions => _functions;
   Health get health => _health;
@@ -61,6 +63,11 @@ void main() async {
   service.avatars
       .getCardsCloudOG(userId: '1234')
       .then((res) => print('Cards OG: $res'));
+
+  // Console
+  service.console
+      .getVariables()
+      .then((res) => print('Console Variables: $res'));
 
   // Databases
   service.databases
