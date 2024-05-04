@@ -1,7 +1,4 @@
-import 'package:meta/meta.dart';
-import 'package:dart_appwrite/models.dart';
-
-import 'models.dart';
+part of appwritex.models;
 
 /// Usage Messaging
 @experimental

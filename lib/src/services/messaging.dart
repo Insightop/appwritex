@@ -1,14 +1,11 @@
-import 'package:meta/meta.dart';
-import 'package:dart_appwrite/dart_appwrite.dart';
-import 'package:dart_appwrite/models.dart';
-import '../models/models.dart' as models;
+part of appwritex;
 
-extension MessagingExt on Messaging {
+extension MessagingX on Messaging {
   /// List all subscribers
   ///
   ///Iterate through all subscribers of topics and accumulate them.
-  Future<SubscriberList> _listSubscribers() async {
-    List<Subscriber> subscriberList = [];
+  Future<models.SubscriberList> _listSubscribers() async {
+    List<models.Subscriber> subscriberList = [];
     final topics = listTopics();
     topics.then((value) {
       for (var topic in value.topics) {
@@ -16,7 +13,7 @@ extension MessagingExt on Messaging {
             .then((v) => subscriberList.addAll(v.subscribers));
       }
     });
-    return SubscriberList(
+    return models.SubscriberList(
         total: subscriberList.length, subscribers: subscriberList);
   }
 

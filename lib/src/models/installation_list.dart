@@ -1,6 +1,4 @@
-import 'package:dart_appwrite/models.dart';
-
-import 'installation.dart';
+part of appwritex.models;
 
 /// Installation List
 class InstallationList implements Model {

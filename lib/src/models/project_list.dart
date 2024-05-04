@@ -1,6 +1,4 @@
-import 'package:dart_appwrite/models.dart';
-
-import 'project.dart';
+part of appwritex.models;
 
 /// Project List
 class ProjectList implements Model {

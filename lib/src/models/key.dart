@@ -1,9 +1,15 @@
-import 'package:dart_appwrite/models.dart';
+part of appwritex.models;
 
 /// Key
 class Key implements Model {
   /// Key ID.
-  final String id;
+  final String $id;
+
+  /// Key creation date in ISO 8601 format.
+  final String $createdAt;
+
+  /// Key update date in ISO 8601 format.
+  final String $updatedAt;
 
   /// Key name.
   final String name;
@@ -30,7 +36,9 @@ class Key implements Model {
   final int registration;
 
   Key({
-    required this.id,
+    required this.$id,
+    required this.$createdAt,
+    required this.$updatedAt,
     required this.name,
     required this.secret,
     required this.expire,
@@ -43,7 +51,9 @@ class Key implements Model {
 
   factory Key.fromMap(Map<String, dynamic> map) {
     return Key(
-      id: map['\$id'],
+      $id: map['\$id'],
+      $createdAt: map['\$createdAt'].toString(),
+      $updatedAt: map['\$updatedAt'].toString(),
       name: map['name'],
       secret: map['secret'],
       expire: map['expire'],
@@ -57,7 +67,9 @@ class Key implements Model {
   @override
   Map<String, dynamic> toMap() {
     return {
-      "\$id": id,
+      "\$id": $id,
+      "\$createdAt": $createdAt,
+      "\$updatedAt": $updatedAt,
       "name": name,
       "secret": secret,
       "expire": expire,

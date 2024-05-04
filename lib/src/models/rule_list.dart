@@ -1,5 +1,4 @@
-import 'package:dart_appwrite/models.dart';
-import 'rule.dart';
+part of appwritex.models;
 
 /// Rule List
 class RuleList implements Model {

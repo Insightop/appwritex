@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Add unit tests.
+
 ## 0.1.2
 
 - Add `Public` service.

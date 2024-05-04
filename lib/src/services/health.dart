@@ -1,10 +1,6 @@
-import 'package:meta/meta.dart';
-import 'package:dart_appwrite/dart_appwrite.dart';
-import 'package:dart_appwrite/src/enums.dart';
+part of appwritex;
 
-import '../models/models.dart' as models;
-
-extension HealthExt on Health {
+extension HealthX on Health {
   /// Get system stats(Internals)
   ///
   /// Get the system internal stats.

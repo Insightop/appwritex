@@ -1,15 +1,15 @@
-import 'package:dart_appwrite/models.dart';
+part of appwritex.models;
 
 /// Webhook
 class Webhook implements Model {
   /// Webhook ID.
-  final String id;
+  final String $id;
 
   /// Webhook creation date in ISO 8601 format.
-  final String createdAt;
+  final String $createdAt;
 
   /// Webhook update date in ISO 8601 format.
-  final String updatedAt;
+  final String $updatedAt;
 
   /// Webhook name.
   final String name;
@@ -42,9 +42,9 @@ class Webhook implements Model {
   final int attempts;
 
   Webhook({
-    required this.id,
-    required this.createdAt,
-    required this.updatedAt,
+    required this.$id,
+    required this.$createdAt,
+    required this.$updatedAt,
     required this.name,
     required this.url,
     required this.events,
@@ -59,9 +59,9 @@ class Webhook implements Model {
 
   factory Webhook.fromMap(Map<String, dynamic> map) {
     return Webhook(
-      id: map['\$id'],
-      createdAt: map['\$createdAt'],
-      updatedAt: map['\$updatedAt'],
+      $id: map['\$id'],
+      $createdAt: map['\$createdAt'],
+      $updatedAt: map['\$updatedAt'],
       name: map['name'],
       url: map['url'],
       events: List<String>.from(map['events']),
@@ -77,9 +77,9 @@ class Webhook implements Model {
   @override
   Map<String, dynamic> toMap() {
     return {
-      "\$id": id,
-      "\$createdAt": createdAt,
-      "\$updatedAt": updatedAt,
+      "\$id": $id,
+      "\$createdAt": $createdAt,
+      "\$updatedAt": $updatedAt,
       "name": name,
       "url": url,
       "events": events,

@@ -1,6 +1,4 @@
-import 'package:dart_appwrite/src/service.dart';
-import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart' as models;
+part of appwritex;
 
 class Proxy extends Service {
   Proxy(super.client);

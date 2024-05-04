@@ -1,8 +1,6 @@
-import 'package:dart_appwrite/dart_appwrite.dart';
-import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart' as models;
+part of appwritex;
 
-extension DatabasesExt on Databases {
+extension DatabasesX on Databases {
   /// Get Usage Collection
   ///
   /// Get usage information on a specific collection.

@@ -13,6 +13,10 @@ and the Flutter guide for
 
 [Beta] AppwriteX provides additional features to the Appwrite Dart SDK non-invasively.
 
+[![Version](https://img.shields.io/pub/v/appwritex)](https://pub.dev/packages/appwritex)
+[![CI](https://github.com/insightoptech/appwritex/actions/workflows/ci.yaml/badge.svg)](https://github.com/insightoptech/appwritex/actions/)
+[![License](https://img.shields.io/github/license/insightoptech/appwritex)](https://github.com/insightoptech/appwritex/blob/main/LICENSE)
+
 ## Features
 
 - **AppwriteX** extends the Appwrite Dart SDK with additional features.
@@ -67,6 +71,6 @@ void main() async {
 
 ```
 
-## Additional information
+## Contributors
 
-Some features in this package are experimental and may not work as expected.
+[![Contributors](https://contrib.rocks/image?repo=insightoptech/appwritex)](https://github.com/insightoptech/appwritex/graphs/contributors)

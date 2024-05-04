@@ -1,8 +1,6 @@
-import 'package:dart_appwrite/dart_appwrite.dart';
-import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart' as models;
+part of appwritex;
 
-extension UsersExt on Users {
+extension UsersX on Users {
   /// Get Usage Users
   ///
   /// Get usage information on the current project's users.

@@ -1,10 +1,6 @@
-import 'dart:typed_data';
+part of appwritex;
 
-import 'package:dart_appwrite/dart_appwrite.dart';
-import 'package:dart_appwrite/src/enums.dart';
-import '../models/models.dart' as models;
-
-extension AvatarsExt on Avatars {
+extension AvatarsX on Avatars {
   /// Get Cloud Card
   ///
   /// Get a cloud card image by its public ID.

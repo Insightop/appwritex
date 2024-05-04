@@ -1,6 +1,6 @@
-import 'package:dart_appwrite/models.dart';
+part of appwritex.models;
 
-/// Versions
+/// Versions(Public)
 class Versions implements Model {
   /// Server version
   final String server;

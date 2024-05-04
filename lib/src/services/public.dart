@@ -1,7 +1,4 @@
-import 'package:dart_appwrite/src/service.dart';
-import 'package:dart_appwrite/src/enums.dart';
-import 'package:appwritex/appwritex.dart';
-import '../models/models.dart' as models;
+part of appwritex;
 
 class Public extends Service {
   Public(super.client);
@@ -10,7 +7,7 @@ class Public extends Service {
   ///
   /// Get a set of all the console's environment variables.
   Future<models.Versions> getVersions() async {
-    /// cloud.appwrite.io/versions
+    /// cloud.appwrite.io/v1/../versions
     final String apiPath = '/../versions';
 
     final Map<String, dynamic> apiParams = {};
@@ -28,7 +25,7 @@ class Public extends Service {
   /// Get Health Version(scope: public.read)
   ///
   /// Get the current appwrite version by health check.
-  Future<HealthVersion> getHealthVersion() async {
+  Future<models.HealthVersion> getHealthVersion() async {
     final String apiPath = '/health/version';
 
     final Map<String, dynamic> apiParams = {};
@@ -40,6 +37,6 @@ class Public extends Service {
     final res = await client.call(HttpMethod.get,
         path: apiPath, params: apiParams, headers: apiHeaders);
 
-    return HealthVersion.fromMap(res.data);
+    return models.HealthVersion.fromMap(res.data);
   }
 }

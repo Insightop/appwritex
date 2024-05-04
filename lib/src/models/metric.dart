@@ -1,4 +1,4 @@
-import 'package:dart_appwrite/models.dart';
+part of appwritex.models;
 
 /// Metric
 class Metric implements Model {

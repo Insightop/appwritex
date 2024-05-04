@@ -1,4 +1,4 @@
-import 'package:dart_appwrite/models.dart';
+part of appwritex.models;
 
 /// Auth Provider
 class AuthProvider implements Model {

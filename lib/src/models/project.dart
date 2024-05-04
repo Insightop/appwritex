@@ -1,9 +1,4 @@
-import 'package:dart_appwrite/models.dart';
-
-import 'auth_provider.dart';
-import 'key.dart';
-import 'platform.dart';
-import 'webhook.dart';
+part of appwritex.models;
 
 /// Project
 class Project implements Model {

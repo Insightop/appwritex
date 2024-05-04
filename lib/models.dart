@@ -1,0 +1,34 @@
+library appwritex.models;
+
+import 'package:dart_appwrite/models.dart' show Model;
+import 'package:meta/meta.dart';
+
+part 'src/models/auth_provider.dart';
+part 'src/models/console_variables.dart';
+part 'src/models/health_stats.dart';
+part 'src/models/health_version.dart';
+part 'src/models/installation_list.dart';
+part 'src/models/installation.dart';
+part 'src/models/key.dart';
+part 'src/models/metric_breakdown.dart';
+part 'src/models/metric.dart';
+part 'src/models/platform.dart';
+part 'src/models/project_list.dart';
+part 'src/models/project.dart';
+part 'src/models/rule_list.dart';
+part 'src/models/rule.dart';
+part 'src/models/stats_cache.dart';
+part 'src/models/stats_storage.dart';
+part 'src/models/usage_buckets.dart';
+part 'src/models/usage_collection.dart';
+part 'src/models/usage_database.dart';
+part 'src/models/usage_databases.dart';
+part 'src/models/usage_function.dart';
+part 'src/models/usage_functions.dart';
+part 'src/models/usage_messaging.dart';
+part 'src/models/usage_project.dart';
+part 'src/models/usage_storage.dart';
+part 'src/models/usage_teams.dart';
+part 'src/models/usage_users.dart';
+part 'src/models/versions.dart';
+part 'src/models/webhook.dart';

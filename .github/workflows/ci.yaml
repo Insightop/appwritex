@@ -24,24 +24,13 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
-    name: ${{ matrix.runner }} / ${{ matrix.target }}
+    name: ${{ matrix.runner }} #/ ${{ matrix.target }}
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     strategy:
       fail-fast: false # Important
       matrix:
         runner: [ubuntu-latest, windows-latest, macos-latest]
-        target: [android, web] # On all platforms
-        include:
-          # Specify targets for each platform
-          - runner: ubuntu-latest
-            target: linux
-          - runner: windows-latest
-            target: windows
-          - runner: macos-latest
-            target: macos
-          - runner: macos-latest
-            target: ios
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -51,46 +40,8 @@ jobs:
       - name: Setup Dart SDK
         uses: dart-lang/setup-dart@v1
 
-      # - name: Setup Ninja and GTK3 toolchain (Only Linux target)
-      #   if: matrix.target == 'linux'
-      #   run: |
-      #     sudo apt-get update -y
-      #     sudo apt-get install -y ninja-build libgtk-3-dev
-
-      # - name: Setup Java toolchain (Only Android target)
-      #   if: matrix.target == 'android'
-      #   uses: actions/setup-java@v4
-      #   with:
-      #     distribution: "zulu"
-      #     java-version: "11"
-      #     cache: "gradle"
-
       - name: Fetch Dart dependencies
         run: dart pub get
 
-      - name: Build target(Linux)
-        if: matrix.target == 'linux'
-        run: dart build linux --verbose
-
-      - name: Build target(Android)
-        if: matrix.target == 'android'
-        run: |
-          dart build apk --verbose
-          dart build appbundle --verbose
-
-      - name: Build target(Windows)
-        if: matrix.target == 'windows'
-        run: dart build windows --verbose
-
-      - name: Build target(MacOS)
-        if: matrix.target == 'macos'
-        run: dart build macos --verbose
-
-      - name: Build target(iOS)
-        if: matrix.target == 'ios'
-        working-directory: test_app/
-        run: dart build ios --verbose --no-codesign
-
-      - name: Build target(Web)
-        if: matrix.target == 'web'
-        run: dart build web --verbose
+      - name: Run tests
+        run: dart test -r github  --verbose-trace
