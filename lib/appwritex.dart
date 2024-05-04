@@ -3,7 +3,6 @@ library appwritex;
 // Dart
 import 'dart:async';
 import 'dart:typed_data';
-import 'package:meta/meta.dart';
 
 // Appwrite
 import 'package:dart_appwrite/dart_appwrite.dart';
