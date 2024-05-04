@@ -20,7 +20,7 @@ extension MessagingX on Messaging {
   /// Get Usage Messaging(Experimental, Not officially API)
   ///
   /// Get usage information on the current project's messaging service.
-  @experimental
+  @Deprecated('Mocked API')
   Future<models.UsageMessaging> getUsage({
     String? range,
   }) async {

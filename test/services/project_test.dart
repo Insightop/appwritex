@@ -3,7 +3,6 @@ import 'package:mockito/mockito.dart';
 import 'package:dart_appwrite/models.dart' as models;
 import 'package:dart_appwrite/src/enums.dart';
 import 'package:dart_appwrite/src/response.dart';
-import 'dart:typed_data';
 import 'package:dart_appwrite/dart_appwrite.dart';
 
 import 'package:appwritex/appwritex.dart';

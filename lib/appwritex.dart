@@ -2,9 +2,7 @@ library appwritex;
 
 // Dart
 import 'dart:async';
-import 'dart:math';
 import 'dart:typed_data';
-import 'dart:convert';
 import 'package:meta/meta.dart';
 
 // Appwrite

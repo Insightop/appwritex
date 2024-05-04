@@ -20,7 +20,7 @@ extension TeamsX on Teams {
   /// Get teams usage
   ///
   /// Get usage information on the current project's teams service.
-  @experimental
+  @Deprecated('Mocked API')
   Future<models.UsageTeams> getUsage({
     String? range,
   }) async {

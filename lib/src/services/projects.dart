@@ -7,6 +7,7 @@ class Projects extends Service {
   /// List Projects (scp: projects.read)
   ///
   /// Get a list of all the projects in the current team. You can use the query
+  @Deprecated('API is not available yet.')
   Future<models.ProjectList> list() async {
     final String apiPath = '/projects';
 

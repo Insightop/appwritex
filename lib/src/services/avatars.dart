@@ -4,6 +4,7 @@ extension AvatarsX on Avatars {
   /// Get Cloud Card
   ///
   /// Get a cloud card image by its public ID.
+  @Deprecated('API is not available yet.')
   Future<Uint8List> getCardsCloud({required String userId}) async {
     final String apiPath = '/cards/cloud';
 
@@ -19,6 +20,7 @@ extension AvatarsX on Avatars {
   /// Get Cloud Card Back
   ///
   /// Get a cloud card back image by its public ID.
+  @Deprecated('API is not available yet.')
   Future<Uint8List> getCardsCloudBack({required String userId}) async {
     final String apiPath = '/cards/cloud-back';
 
@@ -34,6 +36,7 @@ extension AvatarsX on Avatars {
   /// Get Cloud Card OG
   ///
   /// Get a cloud card OG image by its public ID.
+  @Deprecated('API is not available yet.')
   Future<Uint8List> getCardsCloudOG({required String userId}) async {
     final String apiPath = '/cards/cloud-og';
 

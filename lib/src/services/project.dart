@@ -7,6 +7,7 @@ class Project extends Service {
   /// Get Usage (scope: projects.read)
   ///
   /// Get usage information on the current project.
+  @Deprecated('API is not available yet.')
   Future<models.UsageProject> getUsage({
     String? range,
   }) async {
@@ -29,6 +30,7 @@ class Project extends Service {
   /// Get variables (scope: projects.read)
   ///
   /// Get a list of all the project's environment variables.
+  @Deprecated('API is not available yet.')
   Future<models.VariableList> getVariables() async {
     final String apiPath = '/project/variables';
 

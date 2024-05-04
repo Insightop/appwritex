@@ -14,12 +14,10 @@ class MyService {
   final Client _apiClient = Client();
   final Client _publicClient = Client();
 
-  // late final  Account _account = Account(_apiClient);
   late final Avatars _avatars = Avatars(_apiClient);
   late final Databases _databases = Databases(_apiClient);
   late final Functions _functions = Functions(_apiClient);
   late final Health _health = Health(_apiClient);
-  // late final  Locale _locale = Locale(_apiClient);
   late final Messaging _messaging = Messaging(_apiClient);
   late final Project _project = Project(_apiClient);
   late final Projects _projects = Projects(_apiClient);

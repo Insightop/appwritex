@@ -6,7 +6,7 @@ class Vcs extends Service {
   /// List installations(Not officially API)
   ///
   /// Get a list of all the VCS (Version Control System) installations available
-  @experimental
+  @Deprecated('API is not available yet.')
   Future<models.InstallationList> listInstallations() async {
     final String apiPath = '/vcs/installations';
 
