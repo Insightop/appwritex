@@ -1,6 +1,7 @@
 ## 0.2.0
 
 - Add unit tests.
+- Refactor project structure.
 
 ## 0.1.2
 

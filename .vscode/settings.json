@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["appwrite", "appwritex", "Deno", "models", "xservices"]
+  "cSpell.words": [
+    "appwrite",
+    "appwritex",
+    "dartdoc",
+    "Deno",
+    "models",
+    "nodoc",
+    "xservices"
+  ]
 }

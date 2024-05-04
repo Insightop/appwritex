@@ -1,30 +1,6 @@
 # dartdoc:
-#   categories:
-#     "First Category":
-#       markdown: doc/First.md
-#       name: Awesome
-#     "Second Category":
-#       markdown: doc/Second.md
-#       name: Great
-#   categoryOrder: ["First Category", "Second Category"]
-#   includeExternal: ["bin/unusually_located_library.dart"]
-#   nodoc: ["lib/sekret/*.dart"]
-#   linkTo:
-#     url: "https://my.dartdocumentationsite.org/dev/%v%"
-#   showUndocumentedCategories: true
-#   ignore:
-#     - ambiguous-doc-reference
-#   errors:
-#     - unresolved-doc-reference
-#   warnings:
-#     - tool-error
-
-dartdoc:
-  # include:
-  #   - lib/src/services/avatars.dart
-  # includeExternal:
-  #   - lib/src/models/*.dart
-  nodoc:
-    - lib/src/models/*.dart
-  output: docs
-  format: markdown
+# include:
+# - lib/src/services/*.dart
+# nodoc: [lib/src/models/*.dart]
+# output: docs
+# format: markdown
