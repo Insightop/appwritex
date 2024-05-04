@@ -1,3 +1,10 @@
+## 0.2.1
+
+- Update unit tests.
+- Update documentation.
+- Update example.
+- Refactor code.
+
 ## 0.2.0
 
 - Add unit tests.
