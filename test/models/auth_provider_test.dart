@@ -1,10 +1,10 @@
-import 'package:appwritex/models.dart' as x;
 import 'package:test/test.dart';
+import 'package:appwritex/models.dart' as models;
 
 void main() {
   group('model', () {
     test('AuthProvider fromMap(),toMap()', () {
-      final model = x.AuthProvider(
+      final model = models.AuthProvider(
         key: 'appwrite_auth_provider_key',
         name: 'appwrite_auth_provider_name',
         appId: 'appwrite_auth_provider_app_id',
@@ -13,7 +13,7 @@ void main() {
       );
       final map = model.toMap();
 
-      final result = x.AuthProvider.fromMap(map);
+      final result = models.AuthProvider.fromMap(map);
       expect(result.key, model.key);
       expect(result.name, model.name);
       expect(result.appId, model.appId);

@@ -1,5 +1,5 @@
-import 'package:appwritex/models.dart' as models;
 import 'package:test/test.dart';
+import 'package:appwritex/models.dart' as models;
 
 void main() {
   group('model', () {
