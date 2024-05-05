@@ -3,6 +3,15 @@ part of appwritex;
 class Usage extends Service {
   Usage(super.client);
 
+  Future<models.Usage> get() async => models.Usage(
+        databases: await getDatabasesUsage(),
+        functions: await getFunctionsUsage(),
+        messaging: await getMessagingUsage(),
+        storage: await getStorageUsage(),
+        teams: await getTeamsUsage(),
+        users: await getUsersUsage(),
+      );
+
   Future<models.UsageCollection> getCollectionUsage(
           {required String databaseId,
           required String collectionId,

@@ -124,6 +124,51 @@ class UsageFunctions implements Model {
       "executionsTime": executionsTime.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageFunctions &&
+        other.range == range &&
+        other.functionsTotal == functionsTotal &&
+        other.deploymentsTotal == deploymentsTotal &&
+        other.deploymentsStorageTotal == deploymentsStorageTotal &&
+        other.buildsTotal == buildsTotal &&
+        other.buildsStorageTotal == buildsStorageTotal &&
+        other.buildsTimeTotal == buildsTimeTotal &&
+        other.executionsTotal == executionsTotal &&
+        other.executionsTimeTotal == executionsTimeTotal &&
+        ListEquality().equals(other.functions, functions) &&
+        ListEquality().equals(other.deployments, deployments) &&
+        ListEquality().equals(other.deploymentsStorage, deploymentsStorage) &&
+        ListEquality().equals(other.builds, builds) &&
+        ListEquality().equals(other.buildsStorage, buildsStorage) &&
+        ListEquality().equals(other.buildsTime, buildsTime) &&
+        ListEquality().equals(other.executions, executions) &&
+        ListEquality().equals(other.executionsTime, executionsTime);
+  }
+
+  @override
+  int get hashCode {
+    return range.hashCode ^
+        functionsTotal.hashCode ^
+        deploymentsTotal.hashCode ^
+        deploymentsStorageTotal.hashCode ^
+        buildsTotal.hashCode ^
+        buildsStorageTotal.hashCode ^
+        buildsTimeTotal.hashCode ^
+        executionsTotal.hashCode ^
+        executionsTimeTotal.hashCode ^
+        functions.hashCode ^
+        deployments.hashCode ^
+        deploymentsStorage.hashCode ^
+        builds.hashCode ^
+        buildsStorage.hashCode ^
+        buildsTime.hashCode ^
+        executions.hashCode ^
+        executionsTime.hashCode;
+  }
 }
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageFunctions.php
 // <?php

@@ -31,5 +31,6 @@ part 'src/models/usage_project.dart';
 part 'src/models/usage_storage.dart';
 part 'src/models/usage_teams.dart';
 part 'src/models/usage_users.dart';
+part 'src/models/usage.dart';
 part 'src/models/versions.dart';
 part 'src/models/webhook.dart';

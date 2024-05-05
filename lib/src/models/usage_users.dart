@@ -46,6 +46,27 @@ class UsageUsers implements Model {
       "sessions": sessions.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageUsers &&
+        other.range == range &&
+        other.usersTotal == usersTotal &&
+        other.sessionsTotal == sessionsTotal &&
+        ListEquality().equals(other.users, users) &&
+        ListEquality().equals(other.sessions, sessions);
+  }
+
+  @override
+  int get hashCode {
+    return range.hashCode ^
+        usersTotal.hashCode ^
+        sessionsTotal.hashCode ^
+        users.hashCode ^
+        sessions.hashCode;
+  }
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageUsers.php

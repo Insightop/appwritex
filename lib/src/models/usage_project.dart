@@ -91,6 +91,41 @@ class UsageProject implements Model {
       'bucketsBreakdown': bucketsBreakdown.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageProject &&
+        other.executionsTotal == executionsTotal &&
+        other.documentsTotal == documentsTotal &&
+        other.databasesTotal == databasesTotal &&
+        other.usersTotal == usersTotal &&
+        other.filesStorageTotal == filesStorageTotal &&
+        other.bucketsTotal == bucketsTotal &&
+        ListEquality().equals(other.requests, requests) &&
+        ListEquality().equals(other.network, network) &&
+        ListEquality().equals(other.users, users) &&
+        ListEquality().equals(other.executions, executions) &&
+        ListEquality().equals(other.executionsBreakdown, executionsBreakdown) &&
+        ListEquality().equals(other.bucketsBreakdown, bucketsBreakdown);
+  }
+
+  @override
+  int get hashCode {
+    return executionsTotal.hashCode ^
+        documentsTotal.hashCode ^
+        databasesTotal.hashCode ^
+        usersTotal.hashCode ^
+        filesStorageTotal.hashCode ^
+        bucketsTotal.hashCode ^
+        requests.hashCode ^
+        network.hashCode ^
+        users.hashCode ^
+        executions.hashCode ^
+        executionsBreakdown.hashCode ^
+        bucketsBreakdown.hashCode;
+  }
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageProject.php

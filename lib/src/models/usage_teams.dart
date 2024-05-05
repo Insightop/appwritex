@@ -47,4 +47,24 @@ class UsageTeams implements Model {
       'memberships': memberships.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageTeams &&
+        other.range == range &&
+        other.teamsTotal == teamsTotal &&
+        other.membershipsTotal == membershipsTotal &&
+        ListEquality().equals(other.teams, teams) &&
+        ListEquality().equals(other.memberships, memberships);
+  }
+
+  @override
+  int get hashCode =>
+      range.hashCode ^
+      teamsTotal.hashCode ^
+      membershipsTotal.hashCode ^
+      teams.hashCode ^
+      memberships.hashCode;
 }

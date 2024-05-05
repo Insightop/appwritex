@@ -73,4 +73,33 @@ class UsageMessaging implements Model {
       "subscribers": subscribers.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageMessaging &&
+        other.range == range &&
+        other.messagesTotal == messagesTotal &&
+        other.topicsTotal == topicsTotal &&
+        other.providersTotal == providersTotal &&
+        other.subscriberTotal == subscriberTotal &&
+        ListEquality().equals(other.messages, messages) &&
+        ListEquality().equals(other.topics, topics) &&
+        ListEquality().equals(other.providers, providers) &&
+        ListEquality().equals(other.subscribers, subscribers);
+  }
+
+  @override
+  int get hashCode {
+    return range.hashCode ^
+        messagesTotal.hashCode ^
+        topicsTotal.hashCode ^
+        providersTotal.hashCode ^
+        subscriberTotal.hashCode ^
+        messages.hashCode ^
+        topics.hashCode ^
+        providers.hashCode ^
+        subscribers.hashCode;
+  }
 }

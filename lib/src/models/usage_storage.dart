@@ -57,6 +57,31 @@ class UsageStorage implements Model {
       "storage": storage.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UsageStorage &&
+        other.range == range &&
+        other.bucketsTotal == bucketsTotal &&
+        other.filesTotal == filesTotal &&
+        other.filesStorageTotal == filesStorageTotal &&
+        ListEquality().equals(other.buckets, buckets) &&
+        ListEquality().equals(other.files, files) &&
+        ListEquality().equals(other.storage, storage);
+  }
+
+  @override
+  int get hashCode {
+    return range.hashCode ^
+        bucketsTotal.hashCode ^
+        filesTotal.hashCode ^
+        filesStorageTotal.hashCode ^
+        buckets.hashCode ^
+        files.hashCode ^
+        storage.hashCode;
+  }
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageStorage.php
