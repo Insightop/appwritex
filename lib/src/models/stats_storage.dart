@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Stats Storage
-class StatsStorage implements Model {
+class StatsStorage with EquatableMixin implements Model {
   /// Used
   final String used;
 
@@ -32,6 +32,13 @@ class StatsStorage implements Model {
       "partitionFree": partitionFree,
     };
   }
+
+  @override
+  List<Object> get props => [
+        used,
+        partitionTotal,
+        partitionFree,
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/HealthVersion.php

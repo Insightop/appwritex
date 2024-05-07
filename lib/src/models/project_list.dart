@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Project List
-class ProjectList implements Model {
+class ProjectList with EquatableMixin implements Model {
   /// Total number of projects documents that matched your query.
   final int total;
 
@@ -28,4 +28,7 @@ class ProjectList implements Model {
       "projects": projects.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  List<Object> get props => [total, projects];
 }

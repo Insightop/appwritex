@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Health Stats
-class HealthStats implements Model {
+class HealthStats with EquatableMixin implements Model {
   /// Storage
   final StatsStorage storage;
 
@@ -27,6 +27,9 @@ class HealthStats implements Model {
       "cache": cache.toMap(),
     };
   }
+
+  @override
+  List<Object> get props => [storage, cache];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/HealthVersion.php

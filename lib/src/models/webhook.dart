@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Webhook
-class Webhook implements Model {
+class Webhook with EquatableMixin implements Model {
   /// Webhook ID.
   final String $id;
 
@@ -94,39 +94,21 @@ class Webhook implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Webhook &&
-          runtimeType == other.runtimeType &&
-          $id == other.$id &&
-          $createdAt == other.$createdAt &&
-          $updatedAt == other.$updatedAt &&
-          name == other.name &&
-          url == other.url &&
-          // events == other.events &&
-          ListEquality().equals(events, other.events) &&
-          security == other.security &&
-          httpUser == other.httpUser &&
-          httpPass == other.httpPass &&
-          signatureKey == other.signatureKey &&
-          enabled == other.enabled &&
-          logs == other.logs &&
-          attempts == other.attempts;
-  @override
-  int get hashCode =>
-      $id.hashCode ^
-      $createdAt.hashCode ^
-      $updatedAt.hashCode ^
-      name.hashCode ^
-      url.hashCode ^
-      events.hashCode ^
-      security.hashCode ^
-      httpUser.hashCode ^
-      httpPass.hashCode ^
-      signatureKey.hashCode ^
-      enabled.hashCode ^
-      logs.hashCode ^
-      attempts.hashCode;
+  List<Object> get props => [
+        $id,
+        $createdAt,
+        $updatedAt,
+        name,
+        url,
+        events,
+        security,
+        httpUser,
+        httpPass,
+        signatureKey,
+        enabled,
+        logs,
+        attempts,
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/webhook.php

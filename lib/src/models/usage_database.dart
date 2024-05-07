@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Database
-class UsageDatabase implements Model {
+class UsageDatabase with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -49,25 +49,8 @@ class UsageDatabase implements Model {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UsageDatabase &&
-        other.range == range &&
-        other.collectionsTotal == collectionsTotal &&
-        other.documentsTotal == documentsTotal &&
-        ListEquality().equals(other.collections, collections) &&
-        ListEquality().equals(other.documents, documents);
-  }
-
-  @override
-  int get hashCode {
-    return range.hashCode ^
-        collectionsTotal.hashCode ^
-        documentsTotal.hashCode ^
-        collections.hashCode ^
-        documents.hashCode;
-  }
+  List<Object> get props =>
+      [range, collectionsTotal, documentsTotal, collections, documents];
 }
 
 

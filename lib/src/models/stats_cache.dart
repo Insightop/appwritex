@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Stats Cache
-class StatsCache implements Model {
+class StatsCache with EquatableMixin implements Model {
   /// Uptime
   final int uptime;
 
@@ -62,6 +62,18 @@ class StatsCache implements Model {
       "memoryUsedPeakHuman": memoryUsedPeakHuman,
     };
   }
+
+  @override
+  List<Object> get props => [
+        uptime,
+        clients,
+        hits,
+        misses,
+        memoryUsed,
+        memoryUsedHuman,
+        memoryUsedPeak,
+        memoryUsedPeakHuman,
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/HealthVersion.php

@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Rule
-class Rule implements Model {
+class Rule with EquatableMixin implements Model {
   /// Rule ID.
   final String $id;
 
@@ -71,31 +71,17 @@ class Rule implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Rule &&
-          runtimeType == other.runtimeType &&
-          $id == other.$id &&
-          $createdAt == other.$createdAt &&
-          $updatedAt == other.$updatedAt &&
-          domain == other.domain &&
-          resourceType == other.resourceType &&
-          resourceId == other.resourceId &&
-          status == other.status &&
-          logs == other.logs &&
-          renewAt == other.renewAt;
-
-  @override
-  int get hashCode =>
-      $id.hashCode ^
-      $createdAt.hashCode ^
-      $updatedAt.hashCode ^
-      domain.hashCode ^
-      resourceType.hashCode ^
-      resourceId.hashCode ^
-      status.hashCode ^
-      logs.hashCode ^
-      renewAt.hashCode;
+  List<Object> get props => [
+        $id,
+        $createdAt,
+        $updatedAt,
+        domain,
+        resourceType,
+        resourceId,
+        status,
+        logs,
+        renewAt,
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/rule.php

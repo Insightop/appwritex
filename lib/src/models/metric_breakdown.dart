@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Metric Breakdown
-class MetricBreakdown implements Model {
+class MetricBreakdown with EquatableMixin implements Model {
   /// Resource ID.
   final String resourceId;
 
@@ -34,14 +34,9 @@ class MetricBreakdown implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MetricBreakdown &&
-          runtimeType == other.runtimeType &&
-          resourceId == other.resourceId &&
-          name == other.name &&
-          value == other.value;
-
-  @override
-  int get hashCode => resourceId.hashCode ^ name.hashCode ^ value.hashCode;
+  List<Object> get props => [
+        resourceId,
+        name,
+        value,
+      ];
 }

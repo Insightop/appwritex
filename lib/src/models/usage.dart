@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage (Experimental, Not officially API)
-class Usage implements Model {
+class Usage with EquatableMixin implements Model {
   // Databases usage
   UsageDatabases databases;
 
@@ -50,4 +50,8 @@ class Usage implements Model {
       'users': users.toMap(),
     };
   }
+
+  @override
+  List<Object> get props =>
+      [databases, functions, messaging, storage, teams, users];
 }

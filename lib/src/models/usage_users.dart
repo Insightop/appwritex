@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Users
-class UsageUsers implements Model {
+class UsageUsers with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -48,25 +48,7 @@ class UsageUsers implements Model {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UsageUsers &&
-        other.range == range &&
-        other.usersTotal == usersTotal &&
-        other.sessionsTotal == sessionsTotal &&
-        ListEquality().equals(other.users, users) &&
-        ListEquality().equals(other.sessions, sessions);
-  }
-
-  @override
-  int get hashCode {
-    return range.hashCode ^
-        usersTotal.hashCode ^
-        sessionsTotal.hashCode ^
-        users.hashCode ^
-        sessions.hashCode;
-  }
+  List<Object> get props => [range, usersTotal, sessionsTotal, users, sessions];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageUsers.php

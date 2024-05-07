@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Collection
-class UsageCollection implements Model {
+class UsageCollection with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -34,6 +34,9 @@ class UsageCollection implements Model {
       "documents": documents.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  List<Object> get props => [range, documentsTotal, documents];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageCollection.php

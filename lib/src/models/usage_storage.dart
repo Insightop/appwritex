@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Storage
-class UsageStorage implements Model {
+class UsageStorage with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -59,29 +59,15 @@ class UsageStorage implements Model {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UsageStorage &&
-        other.range == range &&
-        other.bucketsTotal == bucketsTotal &&
-        other.filesTotal == filesTotal &&
-        other.filesStorageTotal == filesStorageTotal &&
-        ListEquality().equals(other.buckets, buckets) &&
-        ListEquality().equals(other.files, files) &&
-        ListEquality().equals(other.storage, storage);
-  }
-
-  @override
-  int get hashCode {
-    return range.hashCode ^
-        bucketsTotal.hashCode ^
-        filesTotal.hashCode ^
-        filesStorageTotal.hashCode ^
-        buckets.hashCode ^
-        files.hashCode ^
-        storage.hashCode;
-  }
+  List<Object> get props => [
+        range,
+        bucketsTotal,
+        filesTotal,
+        filesStorageTotal,
+        buckets,
+        files,
+        storage
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageStorage.php

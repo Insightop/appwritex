@@ -32,33 +32,3 @@ void main() {
     });
   });
 }
-// class Platform implements Model {
-//   /// Platform ID.
-//   final String $id;
-
-//   /// Platform creation date in ISO 8601 format.
-//   final String $createdAt;
-
-//   /// Platform update date in ISO 8601 format.
-//   final String $updatedAt;
-
-//   /// Platform name.
-//   final String name;
-
-//   /// Platform type. Possible values are: web, flutter-web, flutter-ios, flutter-android, ios, android, and unity.
-//   final String type;
-
-//   /// Platform Key. iOS bundle ID or Android package name.  Empty string for other platforms.
-//   final String key;
-
-//   /// App store or Google Play store ID.
-//   final String store;
-
-//   /// Web app hostname. Empty string for other platforms.
-//   final String hostname;
-
-//   /// HTTP basic authentication username.
-//   final String httpUser;
-
-//   /// HTTP basic authentication password.
-//   final String httpPass;

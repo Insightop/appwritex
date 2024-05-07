@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// ConsoleVariables
-class ConsoleVariables implements Model {
+class ConsoleVariables with EquatableMixin implements Model {
   /// CNAME target for your Appwrite custom domains.
   final String appDomainTarget;
 
@@ -54,6 +54,19 @@ class ConsoleVariables implements Model {
       "_APP_DOMAIN_ENABLED": appDomainEnabled,
       "_APP_ASSISTANT_ENABLED": appAssistantEnabled,
     };
+  }
+
+  @override
+  List<Object> get props {
+    return [
+      appDomainTarget,
+      appStorageLimit,
+      appFunctionsSizeLimit,
+      appUsageStats,
+      appVcsEnabled,
+      appDomainEnabled,
+      appAssistantEnabled,
+    ];
   }
 }
 

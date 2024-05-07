@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Installation List
-class InstallationList implements Model {
+class InstallationList with EquatableMixin implements Model {
   /// Total number of installations documents that matched your query.
   final int total;
 
@@ -28,6 +28,9 @@ class InstallationList implements Model {
       "installations": installations.map((i) => i.toMap()).toList(),
     };
   }
+
+  @override
+  List<Object> get props => [total, installations];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/variablelist.php

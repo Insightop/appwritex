@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Usage Buckets
-class UsageBucket implements Model {
+class UsageBucket with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -45,6 +45,10 @@ class UsageBucket implements Model {
       "storage": storage.map((p) => p.toMap()).toList(),
     };
   }
+
+  @override
+  List<Object> get props =>
+      [range, filesTotal, filesStorageTotal, files, storage];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/UsageBucket.php

@@ -2,6 +2,7 @@ part of appwritex;
 
 class Usage extends Service {
   Usage(super.client);
+  List<String> listRanges() => ['24h', '30d', '90d'];
 
   Future<models.Usage> get() async => models.Usage(
         databases: await getDatabasesUsage(),

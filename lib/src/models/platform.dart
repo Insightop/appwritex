@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Platform
-class Platform implements Model {
+class Platform with EquatableMixin implements Model {
   /// Platform ID.
   final String $id;
 
@@ -76,33 +76,18 @@ class Platform implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Platform &&
-          runtimeType == other.runtimeType &&
-          $id == other.$id &&
-          $createdAt == other.$createdAt &&
-          $updatedAt == other.$updatedAt &&
-          name == other.name &&
-          type == other.type &&
-          key == other.key &&
-          store == other.store &&
-          hostname == other.hostname &&
-          httpUser == other.httpUser &&
-          httpPass == other.httpPass;
-
-  @override
-  int get hashCode =>
-      $id.hashCode ^
-      $createdAt.hashCode ^
-      $updatedAt.hashCode ^
-      name.hashCode ^
-      type.hashCode ^
-      key.hashCode ^
-      store.hashCode ^
-      hostname.hashCode ^
-      httpUser.hashCode ^
-      httpPass.hashCode;
+  List<Object> get props => [
+        $id,
+        $createdAt,
+        $updatedAt,
+        name,
+        type,
+        key,
+        store,
+        hostname,
+        httpUser,
+        httpPass,
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/Platform.php

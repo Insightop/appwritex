@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Installation
-class Installation implements Model {
+class Installation with EquatableMixin implements Model {
   /// Function ID.
   final String $id;
 
@@ -50,6 +50,16 @@ class Installation implements Model {
       "providerInstallationId": providerInstallationId,
     };
   }
+
+  @override
+  List<Object> get props => [
+        $id,
+        $createdAt,
+        $updatedAt,
+        provider,
+        organization,
+        providerInstallationId
+      ];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/installation.php

@@ -2,7 +2,7 @@ part of appwritex.models;
 
 /// Usage Teams
 @experimental
-class UsageTeams implements Model {
+class UsageTeams with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -49,22 +49,6 @@ class UsageTeams implements Model {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UsageTeams &&
-        other.range == range &&
-        other.teamsTotal == teamsTotal &&
-        other.membershipsTotal == membershipsTotal &&
-        ListEquality().equals(other.teams, teams) &&
-        ListEquality().equals(other.memberships, memberships);
-  }
-
-  @override
-  int get hashCode =>
-      range.hashCode ^
-      teamsTotal.hashCode ^
-      membershipsTotal.hashCode ^
-      teams.hashCode ^
-      memberships.hashCode;
+  List<Object> get props =>
+      [range, teamsTotal, membershipsTotal, teams, memberships];
 }

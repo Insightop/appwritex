@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Versions(Public)
-class Versions implements Model {
+class Versions with EquatableMixin implements Model {
   /// Server version
   final String server;
 
@@ -134,6 +134,30 @@ class Versions implements Model {
       "server-rest": serverRest,
     };
   }
+
+  @override
+  List<Object> get props => [
+        server,
+        clientWeb,
+        clientFlutter,
+        clientApple,
+        clientAndroid,
+        clientGraphql,
+        clientRest,
+        consoleWeb,
+        consoleCli,
+        serverNodejs,
+        serverDeno,
+        serverPhp,
+        serverPython,
+        serverRuby,
+        serverDotnet,
+        serverDart,
+        serverKotlin,
+        serverSwift,
+        serverGraphql,
+        serverRest
+      ];
 }
 
 // {

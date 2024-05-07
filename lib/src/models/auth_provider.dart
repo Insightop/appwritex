@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Auth Provider
-class AuthProvider implements Model {
+class AuthProvider with EquatableMixin implements Model {
   /// Auth Provider.
   final String key;
 
@@ -47,22 +47,7 @@ class AuthProvider implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is AuthProvider &&
-          runtimeType == other.runtimeType &&
-          key == other.key &&
-          name == other.name &&
-          appId == other.appId &&
-          secret == other.secret &&
-          enabled == other.enabled;
-  @override
-  int get hashCode =>
-      key.hashCode ^
-      name.hashCode ^
-      appId.hashCode ^
-      secret.hashCode ^
-      enabled.hashCode;
+  List<Object> get props => [key, name, appId, secret, enabled];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/authprovider.php

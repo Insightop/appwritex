@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Project
-class Project implements Model {
+class Project with EquatableMixin implements Model {
   /// Project ID.
   final String $id;
 
@@ -216,6 +216,43 @@ class Project implements Model {
       'smtpSecure': smtpSecure,
     };
   }
+
+  @override
+  List<Object?> get props => [
+        $id,
+        $createdAt,
+        $updatedAt,
+        name,
+        description,
+        teamId,
+        logo,
+        url,
+        legalName,
+        legalCountry,
+        legalState,
+        legalCity,
+        legalAddress,
+        legalTaxId,
+        authDuration,
+        authLimit,
+        authSessionsLimit,
+        authPasswordHistory,
+        authPasswordDictionary,
+        authPersonalDataCheck,
+        oAuthProviders,
+        platforms,
+        webhooks,
+        keys,
+        smtpEnabled,
+        smtpSenderName,
+        smtpSenderEmail,
+        smtpReplyTo,
+        smtpHost,
+        smtpPort,
+        smtpUsername,
+        smtpPassword,
+        smtpSecure,
+      ];
 }
 
 // <?php

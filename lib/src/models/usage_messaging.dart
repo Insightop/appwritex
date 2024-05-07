@@ -2,7 +2,7 @@ part of appwritex.models;
 
 /// Usage Messaging
 @experimental
-class UsageMessaging implements Model {
+class UsageMessaging with EquatableMixin implements Model {
   /// Time range of the usage stats.
   final String range;
 
@@ -75,31 +75,15 @@ class UsageMessaging implements Model {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UsageMessaging &&
-        other.range == range &&
-        other.messagesTotal == messagesTotal &&
-        other.topicsTotal == topicsTotal &&
-        other.providersTotal == providersTotal &&
-        other.subscriberTotal == subscriberTotal &&
-        ListEquality().equals(other.messages, messages) &&
-        ListEquality().equals(other.topics, topics) &&
-        ListEquality().equals(other.providers, providers) &&
-        ListEquality().equals(other.subscribers, subscribers);
-  }
-
-  @override
-  int get hashCode {
-    return range.hashCode ^
-        messagesTotal.hashCode ^
-        topicsTotal.hashCode ^
-        providersTotal.hashCode ^
-        subscriberTotal.hashCode ^
-        messages.hashCode ^
-        topics.hashCode ^
-        providers.hashCode ^
-        subscribers.hashCode;
-  }
+  List<Object> get props => [
+        range,
+        messagesTotal,
+        topicsTotal,
+        providersTotal,
+        subscriberTotal,
+        messages,
+        topics,
+        providers,
+        subscribers
+      ];
 }

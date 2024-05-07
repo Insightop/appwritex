@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Health Version
-class HealthVersion implements Model {
+class HealthVersion with EquatableMixin implements Model {
   /// Version of the Appwrite instance.
   final String version;
 
@@ -20,6 +20,9 @@ class HealthVersion implements Model {
       "version": version,
     };
   }
+
+  @override
+  List<Object> get props => [version];
 }
 
 // https://github.com/appwrite/appwrite/blob/main/src/Appwrite/Utopia/Response/Model/HealthVersion.php

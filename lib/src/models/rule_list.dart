@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Rule List
-class RuleList implements Model {
+class RuleList with EquatableMixin implements Model {
   /// Total number of rules documents that matched your query.
   final int total;
 
@@ -27,4 +27,7 @@ class RuleList implements Model {
       "rules": rules.map((r) => r.toMap()).toList(),
     };
   }
+
+  @override
+  List<Object> get props => [total, rules];
 }

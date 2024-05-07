@@ -1,7 +1,7 @@
 part of appwritex.models;
 
 /// Metric
-class Metric implements Model {
+class Metric with EquatableMixin implements Model {
   /// Metric value.
   final int value;
 
@@ -28,13 +28,8 @@ class Metric implements Model {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Metric &&
-          runtimeType == other.runtimeType &&
-          value == other.value &&
-          date == other.date;
-
-  @override
-  int get hashCode => value.hashCode ^ date.hashCode;
+  List<Object> get props => [
+        value,
+        date,
+      ];
 }
