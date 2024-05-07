@@ -2,7 +2,6 @@ library appwritex.models;
 
 import 'package:dart_appwrite/models.dart' show Model;
 import 'package:meta/meta.dart';
-import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 
 part 'src/models/auth_provider.dart';

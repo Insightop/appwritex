@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'package:collection/collection.dart';
 import 'package:appwritex/models.dart' as models;
 
 void main() {
@@ -144,10 +143,10 @@ void main() {
       expect(result.platforms, model.platforms);
 
       ///
-      expect(DeepCollectionEquality().equals(result.webhooks, model.webhooks),
-          true);
-      expect(ListEquality().equals(result.webhooks, model.webhooks), true);
-      expect(result.webhooks, equals(model.webhooks));
+      // expect(DeepCollectionEquality().equals(result.webhooks, model.webhooks),
+      // true);
+      // expect(ListEquality().equals(result.webhooks, model.webhooks), true);
+      // expect(result.webhooks, equals(model.webhooks));
       expect(result.webhooks, model.webhooks);
 
       ///
