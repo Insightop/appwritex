@@ -116,6 +116,9 @@ void main() async {
 
   // Teams
   service.teams.getUsage().then((res) => print('Teams Usage: $res'));
+  service.teams
+      .listLogs(teamId: '123')
+      .then((res) => print('Teams Logs: $res'));
 
   // Users
   service.users.getUsage().then((res) => print('Users Usage: $res'));

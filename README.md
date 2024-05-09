@@ -86,6 +86,7 @@ Storage.getUsage();              // Get usage of all storage
 
 // Teams
 Teams.getUsage();                // Get usage of all teams
+Teams.listLogs();                // List all team logs
 
 // Users
 Users.getUsage();                // Get usage of all users

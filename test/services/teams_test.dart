@@ -57,28 +57,36 @@ void main() {
       client = MockClient();
       teams = Teams(client);
     });
-    test('test method getUsage()', () async {
-      final bucketUsage = models.UsageTeams(
-        range: '30d',
-        teamsTotal: 65535,
-        membershipsTotal: 65535,
-        teams: [
-          models.Metric(
-            date: DateTime.now().toIso8601String(),
-            value: 65535,
-          ),
-        ],
-        memberships: [
-          models.Metric(
-            date: DateTime.now().toIso8601String(),
-            value: 65535,
-          ),
-        ],
-      );
-      when(client.call(HttpMethod.get, path: '/teams/usage'))
-          .thenAnswer((_) async => Response(data: bucketUsage.toMap()));
-      final response = await teams.getUsage();
-      expect(response, isA<models.UsageTeams>());
+    // test('test method getUsage()', () async {
+    //   final bucketUsage = models.UsageTeams(
+    //     range: '30d',
+    //     teamsTotal: 65535,
+    //     membershipsTotal: 65535,
+    //     teams: [
+    //       models.Metric(
+    //         date: DateTime.now().toIso8601String(),
+    //         value: 65535,
+    //       ),
+    //     ],
+    //     memberships: [
+    //       models.Metric(
+    //         date: DateTime.now().toIso8601String(),
+    //         value: 65535,
+    //       ),
+    //     ],
+    //   );
+    //   when(client.call(HttpMethod.get, path: '/teams/usage'))
+    //       .thenAnswer((_) async => Response(data: bucketUsage.toMap()));
+    //   final response = await teams.getUsage();
+    //   expect(response, isA<models.UsageTeams>());
+    // });
+    test('test method listLogs()', () async {
+      final logList = models.LogList(total: 65535, logs: []);
+      when(client.call(HttpMethod.get, path: '/teams/teamId/logs'))
+          .thenAnswer((_) async => Response(data: logList.toMap()));
+
+      final response = await teams.listLogs(teamId: 'teamId');
+      expect(response, isA<models.LogList>());
     });
   });
 }

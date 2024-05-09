@@ -33,4 +33,26 @@ extension TeamsX on Teams {
       memberships: [],
     );
   }
+
+  /// List team logs
+  ///
+  /// Get the team activity logs list by its unique ID.
+  Future<models.LogList> listLogs(
+      {required String teamId, List<String>? queries}) async {
+    final String apiPath =
+        '/teams/{teamId}/logs'.replaceAll('{teamId}', teamId);
+
+    final Map<String, dynamic> apiParams = {
+      'queries': queries,
+    };
+
+    final Map<String, String> apiHeaders = {
+      'content-type': 'application/json',
+    };
+
+    final res = await client.call(HttpMethod.get,
+        path: apiPath, params: apiParams, headers: apiHeaders);
+
+    return models.LogList.fromMap(res.data);
+  }
 }
