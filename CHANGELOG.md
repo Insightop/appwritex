@@ -1,3 +1,8 @@
+## 0.2.2
+
+- Add `listLogs()` method to `Teams` service.
+- Simplify models code by using equatable package.
+
 ## 0.2.1
 
 - Update unit tests.
