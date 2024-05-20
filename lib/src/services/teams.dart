@@ -6,13 +6,11 @@ extension TeamsX on Teams {
   /// Iterate through all teams of the project and accumulate memberships.
   Future<models.MembershipList> _listAllMemberships() async {
     List<models.Membership> membershipList = [];
-    final teams = list();
-    teams.then((value) {
-      for (var team in value.teams) {
-        listMemberships(teamId: team.$id)
-            .then((v) => membershipList.addAll(v.memberships));
-      }
-    });
+    final teamList = await list();
+    for (var team in teamList.teams) {
+      listMemberships(teamId: team.$id)
+          .then((v) => membershipList.addAll(v.memberships));
+    }
     return models.MembershipList(
         total: membershipList.length, memberships: membershipList);
   }
