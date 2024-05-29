@@ -14,6 +14,10 @@ import 'package:dart_appwrite/models.dart' as models;
 import 'models.dart' as models;
 
 export 'models.dart';
+export 'src/realtime/realtime.dart';
+
+// export 'src/realtime/client_browser.dart';
+// export 'src/realtime/client_io.dart';
 
 part 'src/services/avatars.dart';
 part 'src/services/console.dart';
