@@ -1,8 +1,8 @@
 name: appwritex
 description: Provides additional features to the Appwrite Dart SDK non-invasively.
 version: 0.2.2
-repository: https://github.com/insightoptech/appwritex
-homepage: https://github.com/insightoptech/appwritex
+repository: https://github.com/insightop/appwritex
+homepage: https://github.com/insightop/appwritex
 
 environment:
   sdk: ^3.3.0
