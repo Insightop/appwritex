@@ -1,8 +1,8 @@
 [Beta] AppwriteX provides additional features to the Appwrite Dart SDK non-invasively.
 
 [![Version](https://img.shields.io/pub/v/appwritex)](https://pub.dev/packages/appwritex)
-[![CI](https://github.com/insightoptech/appwritex/actions/workflows/ci.yaml/badge.svg)](https://github.com/insightoptech/appwritex/actions/)
-[![License](https://img.shields.io/github/license/insightoptech/appwritex)](https://github.com/insightoptech/appwritex/blob/main/LICENSE)
+[![CI](https://github.com/insightop/appwritex/actions/workflows/ci.yaml/badge.svg)](https://github.com/insightop/appwritex/actions/)
+[![License](https://img.shields.io/github/license/insightop/appwritex)](https://github.com/insightop/appwritex/blob/main/LICENSE)
 
 ## Features
 
@@ -121,4 +121,4 @@ Usage.getUsersUsage();      // Get usage of all users
 
 ## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=insightoptech/appwritex)](https://github.com/insightoptech/appwritex/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=insightop/appwritex)](https://github.com/insightop/appwritex/graphs/contributors)
